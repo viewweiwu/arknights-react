@@ -1,3 +1,33 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+@font-face{ 
+  font-family: 'SourceHanSansSubset';
+  src : url('../fonts/SourceHanSerifSubset.woff2');
+}
+
+@font-face{ 
+  font-family: 'Bender';
+  src : url('../fonts/Bender.woff2');
+}
+
 body {
-  background-color: #ccc;
+  font-family: Bender, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background-image: url(../images/bg.png);
+}
+
+p, ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.iconfont {
+  font-size: inherit;
 }

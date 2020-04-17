@@ -9,7 +9,7 @@ import Dust from './components/Dust'
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     element: lazy(() => import('./page/Home')),
     meta: {
       title: '主页'
@@ -17,7 +17,7 @@ const routes = [
   }
 ]
 
-export default function BasicExample() {
+export default function App () {
   return (
     <Router>
       <Dust />
@@ -31,7 +31,7 @@ export default function BasicExample() {
                 render={
                   (props:RouteComponentProps) => (
                     <Suspense fallback={<div>...</div>}>
-                      <route.element {...props} meta={route.meta} />
+                      <route.element {...props} />
                     </Suspense>   
                   )
                 }

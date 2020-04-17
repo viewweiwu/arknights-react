@@ -1,0 +1,55 @@
+@space: 10px;
+@space2: @space * 2;
+@space3: @space * 3;
+
+@blue: #2bf;
+@gray: #606162;
+@black: #424242;
+@white: #d2d3d4;
+@gray: #8b8b8b;
+@yellow: #fe2;
+@red: #ff5e19;
+@orange: #e69a37;
+
+@fade-white: rgba(255, 255, 255, 0.8);
+@fade-black: rgba(0, 0, 0, 0.8);
+@fade-blue: fadeout(@blue, 20%);
+
+@fade-black-hover: fadein(@fade-black, 20%);
+@fade-white-hover: fadein(@fade-white, 20%);
+@fade-blue-hover: lighten(@fade-blue, 10%);
+
+@fade-black-active: darken(@fade-black, 15%);
+@fade-white-active: darken(@fade-white, 15%);
+@fade-blue-active: darken(@fade-blue, 10%);
+
+@dark-blue: darken(@blue, 20%);
+
+@bg-white-fade: rgba(255, 255, 255, 0.1);
+@bg-black-fade: rgba(0, 0, 0, 0.1);
+
+.flex () {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fr {
+  float: right;
+}
+
+.ml {
+  margin-left: @space;
+}
+
+.mb {
+  margin-bottom: @space;
+}
+
+.gap {
+  margin-left: 4px;
+}
+
+.font-yellow {
+  color: @yellow;
+}

@@ -1,8 +1,11 @@
-import React from 'react';
-import WithMetaProps from '../../types/WithMetaProps'
+import React from 'react'
+import HomeSide from './HomeSide'
+import { RouteComponentProps } from 'react-router'
 
-export default function Home(props:WithMetaProps) {
+export default function Home (props?: RouteComponentProps) {
   return (
-  <div className="Home">home</div>
-  );
+    <div className="Home">
+      <HomeSide />
+    </div>
+  )
 }
