@@ -2,29 +2,25 @@ import React, { lazy, Suspense } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  RouteComponentProps
 } from "react-router-dom";
+import Dust from './components/Dust'
 
 const routes = [
   {
     path: '/home',
-    element: lazy(() => import('./Home')),
+    element: lazy(() => import('./page/Home')),
     meta: {
-      name: 1
+      title: '主页'
     }
   }
-  // {
-  //   path: '/test',
-  //   element: lazy(() => import('./Test')),
-  //   meta: {
-  //     name: 2
-  //   }
-  // }
 ]
 
 export default function BasicExample() {
   return (
     <Router>
+      <Dust />
       <Switch>
         {
           routes.map(route => {
@@ -33,7 +29,7 @@ export default function BasicExample() {
                 path={route.path}
                 key={route.path}
                 render={
-                  (props:any) => (
+                  (props:RouteComponentProps) => (
                     <Suspense fallback={<div>...</div>}>
                       <route.element {...props} meta={route.meta} />
                     </Suspense>   
