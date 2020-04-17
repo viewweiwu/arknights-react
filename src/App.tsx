@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-function App() {
+const routes = [
+  {
+    path: '/home',
+    element: lazy(() => import('./Home')),
+    meta: {
+      name: 1
+    }
+  }
+  // {
+  //   path: '/test',
+  //   element: lazy(() => import('./Test')),
+  //   meta: {
+  //     name: 2
+  //   }
+  // }
+]
+
+export default function BasicExample() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        {
+          routes.map(route => {
+            return (
+              <Route
+                path={route.path}
+                key={route.path}
+                render={
+                  (props:any) => (
+                    <Suspense fallback={<div>...</div>}>
+                      <route.element {...props} meta={route.meta} />
+                    </Suspense>   
+                  )
+                }
+              />
+            )
+          })
+        }
+      </Switch>
+    </Router>
   );
 }
-
-export default App;
