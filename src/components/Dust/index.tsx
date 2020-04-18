@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import './dust.less'
-import Point from '@/types/Point'
 import { getRandomFloor, getRandom } from '@/utils'
 
 class Dust {
@@ -95,7 +94,7 @@ class Dust {
 }
 
 export default function () {
-  const $canvas = useRef<HTMLCanvasElement>(null);
+  const $canvas = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
     $canvas.current && new Dust($canvas.current)

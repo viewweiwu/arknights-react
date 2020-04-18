@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import Parallax from 'parallax-js'
 import './home-side.less'
 
 export default function () {
+  const parallax = useRef(null)
+
+  useEffect(() => {
+    parallax.current && new Parallax(parallax.current)
+  })
+
   return (
     <div className="home-side">
-      <div className="home-side">
+      <div className="home-side" ref={parallax}>
         <div className="home-side-parallax" data-depth="0.3">
           <div className="home-side-content">
             <div className="home-side-time">

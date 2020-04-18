@@ -1,4 +1,4 @@
-export default interface Point {
+declare interface Point {
   x: number, // x 坐标
   y: number, // y 坐标
   xa: number, // x 加速度

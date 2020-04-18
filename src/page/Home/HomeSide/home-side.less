@@ -7,6 +7,7 @@
   height: 100%;
   font-family: noto sans sc, sans-serif;
   color: #333;
+  z-index: 1;
   position: fixed;
   display: flex;
   justify-content: flex-end;
@@ -398,7 +399,7 @@
 }
 
 .home-side-black-gap {
-  width: 120px;
+  width: 230px;
   margin-left: @space;
   background-color: rgba(0, 0, 0, .7);
 }
@@ -412,6 +413,12 @@
   }
 
   &.row-first {
+    transform: translateX(80px);
+  }
+
+  &.row-sub {
+    width: 880px;
+    margin-left: -80px;
     transform: translateX(80px);
   }
 

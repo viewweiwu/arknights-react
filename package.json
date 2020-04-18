@@ -12,6 +12,8 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-router": "^5.1.5",
     "@types/react-router-dom": "^5.1.4",
+    "normalize.css": "^8.0.1",
+    "parallax-js": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.1.2",

@@ -1,0 +1,109 @@
+
+@import "~@/assets/less/variable.less";
+
+.home {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .chara-cg {
+    top: 10%;
+    left: 35%;
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  .chara-cg-doctor {
+    left: 5 %;
+    width: 200px;
+    height: 691px;
+    background-image: url('~@/assets/images/icon.png');
+    background-position-y: -650px;
+    position: absolute;
+    transform: scale(.5);
+  }
+
+  .chara-cg-main {
+    z-index: 1;
+    position: relative;
+  }
+
+  .chara-cg-eye {
+    top: 114px;
+    left: 482px;
+    z-index: 1;
+    position: absolute;
+  }
+
+  // ---------- user --------------
+  .home-user {
+    top: 50%;
+    width: 15%;
+    min-width: 170px;
+    z-index: 2;
+    position: absolute;
+    transform: translateY(-50%);
+
+    &::after {
+      content: '';
+      top: -80px;
+      right: 0;
+      width: 229px;
+      height: 195px;
+      background-image: url('~@/assets/images/icon.png');
+      background-position-y: -400px;
+      z-index: -1;
+      filter: brightness(.4);
+      position: absolute;
+    }
+  }
+
+  .home-user-level {
+    width: 100%;
+    height: 40px;
+    box-shadow: 0 0px 5px #000;
+    background-color: #313233;
+    position: relative;
+  }
+
+  svg {
+    right: 0;
+    bottom: @space / 2;
+    position: absolute;
+  }
+
+  .level-num {
+    right: 0;
+    bottom: @space / 2;
+    width: 110px;
+    height: 110px;
+    font-size: 60px;
+    font-weight: bold;
+    position: absolute;
+    .flex();
+  }
+
+  .level-text {
+    left: 50%;
+    bottom: @space;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+
+  .home-user-account {
+    width: 100%;
+    margin-top: @space / 2;
+    padding-right: 4px;
+    text-align: right;
+  }
+
+  .account-name {
+    margin-right: 34px;
+    font-size: 40px;
+  }
+}
