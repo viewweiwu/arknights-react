@@ -1,0 +1,110 @@
+@import "~@/assets/less/variable.less";
+
+.home-banner {
+  left: 0;
+  bottom: 0;
+  width: 600px;
+  height: 100%;
+  padding: 70px 50px;
+  z-index: 2;
+  position: absolute;
+  transform-origin: left top;
+}
+
+.home-banner-parallax {
+  height: 100%;
+  position: relative;
+}
+
+.home-banner-parallax-content {
+  height: 100%;
+  transform: perspective(500px) rotateY(10deg);
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.home-voice {
+  width: 580px;
+  padding: @space2;
+  margin-bottom: @space2;
+  background-color: rgba(0, 0, 0, .7);
+  position: relative;
+
+  &::after {
+    content: 'VOICE';
+    top: -4px;
+    left: -3px;
+    width: 124px;
+    padding: 0 @space;
+    font-size: 12px;
+    color: #333;
+    background-color: @fade-white;
+    position: absolute;
+  }
+}
+
+.home-banner-content {
+  display: flex;
+
+  .content-right {
+    width: 240px;
+    margin-left: @space;
+    font-size: 40px;
+    font-family: Serif;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .friends,
+  .infomation {
+    flex: 1;
+    opacity: .9;
+    padding: @space;
+    box-shadow: -2px 2px 5px @fade-black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+
+    .icon {
+      width: 112px;
+      height: 132px;
+      left: -@space;
+      background-image: url('~@/assets/images/icon.png');
+      background-position-y: -200px;
+      position: absolute;
+      transform: scale(.4 );
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      opacity: .8;
+    }
+  }
+
+  .friends {
+    background-color: @black;
+
+    .icon {
+      background-position-x: -1591px;
+    }
+  }
+
+  .infomation {
+    margin-top: @space;
+    color: #333;
+    background-color: #fff;
+
+    .icon {
+      background-position-x: -1712px;
+      filter: invert(20%);
+    }
+  }
+}

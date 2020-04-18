@@ -1,0 +1,58 @@
+@import "~@/assets/less/variable.less";
+
+.home-slider {
+  width: 330px;
+  position: relative;
+
+  &::after {
+    content: '';
+    top: -@space;
+    left: -@space3;
+    width: 178px;
+    height: 28px;
+    background-image: url('~@/assets/images/icon.png');
+    background-position: -280px -650px;
+    position: absolute;
+    transform: scale(.7);
+  }
+}
+
+.home-slider-indicator {
+  width: 330px;
+  margin-top: @space;
+  display: flex;
+  
+  .indicator-item {
+    flex: 1;
+    height: 6px;
+    background-color: #fff;
+
+    &.active {
+      background-color: @orange;
+    }
+  }
+
+  .indicator-item + .indicator-item {
+    margin-left: @space;
+  }
+}
+
+.home-slider-content {
+  overflow: hidden;
+
+  ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 300ms;
+    position: relative;
+  }
+
+  .content-item {
+    width: 330px;
+    height: 140px;
+    background-color: rgba(0, 0, 0, .7);
+    flex-shrink: 0;
+    .flex();
+  }
+}

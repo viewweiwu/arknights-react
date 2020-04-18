@@ -7,7 +7,7 @@ class Dust {
   width:number = 0 // 画布宽度
   height: number = 0 // 画布高度
   maxPointLength: number = 1 // 灰尘最大数量
-  safeMaxPointLength: number = 20 // 灰尘上限数量
+  safeMaxPointLength: number = 30 // 灰尘上限数量
   maxTimer: NodeJS.Timeout | undefined // 灰尘上限计时器
   points: Array<Point> = [] // 灰尘组
   colors: Array<string> = ['#fff', '#000'] // 灰尘颜色

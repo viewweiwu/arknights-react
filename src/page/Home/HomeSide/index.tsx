@@ -11,8 +11,8 @@ export default function () {
 
   return (
     <div className="home-side">
-      <div className="home-side" ref={parallax}>
-        <div className="home-side-parallax" data-depth="0.3">
+      <div className="event" ref={parallax}>
+        <div className="home-side-parallax" data-depth="0.5">
           <div className="home-side-content">
             <div className="home-side-time">
               <div className="time-battery"></div>
@@ -52,14 +52,14 @@ export default function () {
                 <div className="item-icon"></div>
               </div>
               <div className="home-side-item item-row1-col2">
-                <p className="item-title">预览</p>
+                <p className="item-title">干员</p>
                 <div className="item-icon"></div>
               </div>
               <div className="home-side-black-gap"></div>
             </div>
             <div className="home-side-row row-primary">
               <div className="home-side-item item-blue item-title-end item-row2-col1">
-                <p className="item-title">参数设置</p>
+                <p className="item-title">采购中心</p>
                 <div className="item-icon"></div>
               </div>
               <div className="home-side-item item-blue item-multi">
@@ -69,7 +69,7 @@ export default function () {
                 </p>
                 <div className="item-multi-content">
                   <div className="item-multi-item item-row2-col2">
-                    <p className="item-multi-title">干员中心</p>
+                    <p className="item-multi-title">公开招募</p>
                     <div className="item-icon"></div>
                   </div>
                   <div className="item-multi-item item-row2-col3">
@@ -81,7 +81,7 @@ export default function () {
             </div>
             <div className="home-side-row row-end">
               <div className="home-side-item item-row3-col1">
-                <p className="item-title">生成代码</p>
+                <p className="item-title">任务</p>
                   <div className="item-icon"></div>
               </div>
               <div className="home-side-item item-row3-col2">

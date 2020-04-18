@@ -3,7 +3,6 @@
 .home-side {
   top: 0;
   right: 0;
-  width: 100%;
   height: 100%;
   font-family: noto sans sc, sans-serif;
   color: #333;
@@ -17,11 +16,6 @@
   transition: 300ms;
   transform-origin: right center;
   pointer-events: unset !important;
-
-  &.hide {
-    opacity: 0;
-    transform: translateX(100%) !important;
-  }
 }
 
 .layout-grid-back {
@@ -316,7 +310,7 @@
     background-color: @blue;
 
     .item-icon {
-      opacity: .3;
+      opacity: .5;
     }
 
     &::after {
