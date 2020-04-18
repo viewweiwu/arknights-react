@@ -1,13 +1,23 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState, SetStateAction, Dispatch } from 'react'
 import Parallax from 'parallax-js'
+import dayjs from 'dayjs'
 import './home-side.less'
+
+function loopDate (setDate: Dispatch<SetStateAction<Date>>): void {
+  setTimeout(() => {
+    setDate(new Date())
+    loopDate(setDate)
+  }, 1000)
+}
 
 export default function () {
   const parallax = useRef(null)
+  const [ date, setDate ] = useState(new Date())
 
   useEffect(() => {
     parallax.current && new Parallax(parallax.current)
-  })
+    loopDate(setDate)
+  }, [])
 
   return (
     <div className="home-side">
@@ -16,7 +26,7 @@ export default function () {
           <div className="home-side-content">
             <div className="home-side-time">
               <div className="time-battery"></div>
-              <span className="time-text">2019-20-33</span>
+              <span className="time-text">{dayjs(date).format('YYYY-MM-DD HH:mm:ss')}</span>
             </div>
             <ul className="home-side-assets">
               <li>
