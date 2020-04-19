@@ -1,0 +1,113 @@
+@import "~@/assets/less/variable.less";
+
+.chapter {
+  width: 100%;
+  height: 100%;
+  background-image: url(./images/batthern.png);
+  background-color: #dcdcdc;
+  position: absolute;
+  overflow: auto;
+  user-select: none;
+
+  img {
+    max-width: 100%;
+  }
+
+  .chapter-select {
+    top: 50%;
+    padding: 0 200px;
+    display: flex;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+
+  .chapter-select-item {
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    float: left;
+    position: relative;
+
+    &:last-child {
+      .item-symbol {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .chapter-select-item + .chapter-select-item {
+    margin-left: 50px;
+  }
+
+  .item-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .item-symbol {
+    top: -30px;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+    border: 4px solid #000;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+
+
+    &::before {
+      content: '';
+      top: 50%;
+      left: 50%;
+      width: 340px;
+      height: 2px;
+      background-color: #000;
+      position: absolute;
+      transform: translateY(-50%) translateX(5px);
+    }
+
+    &::after {
+      content: '';
+      top: 50%;
+      left: 50%;
+      width: 40%;
+      height: 40%;
+      border: 10px solid #000;
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+  .item-title,
+  .item-text {
+    background-color: #000;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .item-title {
+    top: 50%;
+    left: 80%;
+    padding: @space / 2;
+    transform: translateY(-50%);
+  }
+
+  .item-title-main {
+    font-size: 1.6em;
+  }
+
+  .item-text {
+    left: -20px;
+    bottom: 100%;
+    padding: @space / 2 @space2;
+  }
+
+  .item-title-en {
+    opacity: .7;
+    font-size: 12px;
+  }
+}

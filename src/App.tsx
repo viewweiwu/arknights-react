@@ -10,10 +10,15 @@ import Dust from './components/Dust'
 const routes = [
   {
     path: '/',
+    exact: true,
     element: lazy(() => import('./page/Home')),
     meta: {
       title: '主页'
     }
+  },
+  {
+    path: '/chapter',
+    element: lazy(() => import('./page/Chapter'))
   }
 ]
 
@@ -26,6 +31,7 @@ export default function App () {
           routes.map(route => {
             return (
               <Route
+                exact={route.exact}
                 path={route.path}
                 key={route.path}
                 render={

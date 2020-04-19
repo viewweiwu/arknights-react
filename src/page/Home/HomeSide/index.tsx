@@ -1,18 +1,27 @@
 import React, { useEffect, useRef, useState, SetStateAction, Dispatch } from 'react'
+import { RouteComponentProps } from 'react-router'
 import Parallax from 'parallax-js'
 import dayjs from 'dayjs'
 import './home-side.less'
 
+let timer: NodeJS.Timeout
 function loopDate (setDate: Dispatch<SetStateAction<Date>>): void {
-  setTimeout(() => {
+  timer && clearTimeout(timer)
+  timer = setTimeout(() => {
     setDate(new Date())
     loopDate(setDate)
   }, 1000)
 }
 
-export default function () {
+
+export default function (props: RouteComponentProps) {
   const parallax = useRef(null)
   const [ date, setDate ] = useState(new Date())
+
+  function goPage (path: string): void {
+    clearTimeout(timer)
+    props.history.push(path)
+  }
 
   useEffect(() => {
     parallax.current && new Parallax(parallax.current)
@@ -43,7 +52,7 @@ export default function () {
               </li>
             </ul>
             <div className="home-side-row row-first">
-              <div className="home-side-item item-fight">
+              <div className="home-side-item item-fight" onClick={() => goPage('chapter')}>
                 <div className="fight-info">
                   <p className="primary">255</p>
                   <p className="sub">理智/90</p>

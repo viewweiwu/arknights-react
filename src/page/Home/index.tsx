@@ -6,7 +6,7 @@ import cg from '@/assets/images/char_103_angel_wild.png'
 import eye from '@/assets/images/eye.gif'
 import './home.less'
 
-export default function Home (props?: RouteComponentProps) {
+export default function Home (props: RouteComponentProps) {
   return (
     <div className="home">
       <section className="chara-cg">
@@ -31,7 +31,7 @@ export default function Home (props?: RouteComponentProps) {
         </div>
       </section>
       <HomeBanner />
-      <HomeSide />
+      <HomeSide {...props} />
     </div>
   )
 }
