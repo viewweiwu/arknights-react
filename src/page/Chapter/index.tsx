@@ -50,32 +50,35 @@ const chapterList = [
 export default function () {
   let history = useHistory()
   return (
-    <div className="chapter shadow-page">
+    <div className="chapter">
       <div className="tool">
-        <div className="tool-item btn" onClick={() => history.goBack()}>
+        <button className="tool-item btn" onClick={() => history.goBack()}>
           <i className="iconfont icon-back"></i>
-        </div>
+        </button>
       </div>
-      <div className="chapter-select">
-        {
-          chapterList.map(chapter => {
-            return (
-              <div className="chapter-select-item" key={chapter.title}>
-                <div className="item-symbol">
-                  <div className="item-line"></div>
-                  <div className="item-title">
-                    <p className="item-text">{chapter.text}</p>
-                    <p className="item-title-main">{chapter.title}</p>
-                    <p className="item-title-en">{chapter.en}</p>
+      <div className="shadow-page"></div>
+      <div className="shadow-scroll">
+        <div className="chapter-select">
+          {
+            chapterList.map(chapter => {
+              return (
+                <div className="chapter-select-item" key={chapter.title}>
+                  <div className="item-symbol">
+                    <div className="item-line"></div>
+                    <div className="item-title">
+                      <p className="item-text">{chapter.text}</p>
+                      <p className="item-title-main">{chapter.title}</p>
+                      <p className="item-title-en">{chapter.en}</p>
+                    </div>
+                  </div>
+                  <div className="item-content btn">
+                    <img src={chapter.src} alt=""/>
                   </div>
                 </div>
-                <div className="item-content btn">
-                  <img src={chapter.src} alt=""/>
-                </div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
     </div>
   )

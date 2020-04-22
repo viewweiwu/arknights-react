@@ -1,0 +1,164 @@
+.member {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+
+  .shadow-scroll {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+  }
+
+  &::after {
+    content: '';
+    left: 0;
+    bottom: 100px;
+    width: 229px;
+    height: 195px;
+    opacity: .3;
+    background-image: url('~@/assets/images/icon.png');
+    background-position-y: -400px;
+    position: absolute;
+    transform: scale(1.5) translateX(-30%);
+  }
+}
+
+.member-content {
+  height: 80%;
+}
+
+.member-list {
+  height: 100%;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.member-item {
+  width: 140px;
+  height: 295px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  margin-right: 20px;
+  position: relative;
+
+  .item-uh {
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .item-class {
+    top: 2px;
+    left: 2px;
+    position: absolute;
+  }
+
+  .item-star {
+    top: 0;
+    left: 30px;
+    position: absolute;
+  }
+
+  .item-bg {
+    top: 30%;
+    right: 0;
+    position: absolute;
+  }
+
+  .item-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .item-half {
+    top: 30px;
+    left: 10px;
+    width: 120px;
+    position: absolute;
+  }
+
+  .item-light {
+    right: 0;
+    bottom: 24px;
+    width: 100%;
+    position: absolute;
+  }
+
+  .item-lh {
+    right: -6px;
+    bottom: -6px;
+    width: ~'calc(100% + 10px)';
+    position: absolute;
+  }
+  
+  .item-cn {
+    right: 0;
+    bottom: 0;
+    font-size: 18px;
+    position: absolute;
+  }
+
+  .item-skill {
+    right: 4px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    bottom: 24px;
+    position: absolute;
+  }
+
+  .item-step {
+    left: 10px;
+    bottom: 70px;
+    width: 30px;
+    border: 1px solid #fff;
+    position: absolute;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 50px;
+    }
+  }
+
+  .item-level {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+
+    .level-num {
+      top: 50%;
+      left: 50%;
+      line-height: 1;
+      font-size: 30px;
+      font-weight: bold;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-50%, -50%);
+    }
+
+    .level-text {
+      bottom: 90%;
+      font-size: 10px;
+      font-weight: normal;
+      opacity: .8;
+      transform: scale(.7);
+      position: absolute;
+    }
+  }
+
+  &.empty {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

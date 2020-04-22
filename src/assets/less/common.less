@@ -1,5 +1,6 @@
 
 .btn {
+  color: #fff;
   cursor: pointer;
   
   &:hover {
@@ -14,12 +15,14 @@
 .tool {
   top: 20px;
   left: 40px;
+  z-index: 10;
   position: fixed;
 }
 
 .tool-item {
   height: 26px;
   padding: 0 @space;
+  border: none;
   width: 80px;
   background-color: @black;
   display: flex;
@@ -27,5 +30,30 @@
 }
 
 .shadow-page {
-  box-shadow: inset 0 0 100px #000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    top: -30px;
+    left: -30px;
+    width: ~'calc(100% + 60px)';
+    height: ~'calc(100% + 60px)';
+    border-radius: 50px;
+    box-shadow: inset 0 0 100px 30px #000;
+    position: absolute;
+  }
+}
+
+.shadow-scroll {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: relative;
+  overflow: auto;
 }

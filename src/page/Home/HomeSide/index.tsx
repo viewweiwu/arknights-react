@@ -52,7 +52,7 @@ export default function (props: RouteComponentProps) {
               </li>
             </ul>
             <div className="home-side-row row-first">
-              <div className="home-side-item item-fight" onClick={() => goPage('chapter')}>
+              <div className="home-side-item item-fight" onClick={() => goPage('/chapter')}>
                 <div className="fight-info">
                   <p className="primary">255</p>
                   <p className="sub">理智/90</p>
@@ -70,7 +70,7 @@ export default function (props: RouteComponentProps) {
                 <p className="item-title">编队</p>
                 <div className="item-icon"></div>
               </div>
-              <div className="home-side-item item-row1-col2">
+              <div className="home-side-item item-row1-col2" onClick={() => goPage('/member')}>
                 <p className="item-title">干员</p>
                 <div className="item-icon"></div>
               </div>
