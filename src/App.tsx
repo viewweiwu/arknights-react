@@ -5,7 +5,6 @@ import {
   Route,
   RouteComponentProps
 } from "react-router-dom";
-import Dust from './components/Dust'
 
 const routes = [
   {
@@ -23,13 +22,16 @@ const routes = [
   {
     path: '/member',
     element: lazy(() => import('./page/Member'))
+  },
+  {
+    path: '/recruit',
+    element: lazy(() => import('./page/Recruit'))
   }
 ]
 
 export default function App () {
   return (
     <Router>
-      <Dust />
       <Switch>
         {
           routes.map(route => {

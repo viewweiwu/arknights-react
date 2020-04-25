@@ -1,0 +1,239 @@
+@import "../../assets/less/variable.less";
+
+.member-get {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  position: fixed;
+  .flex();
+
+  .arrow-wrap {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .arrow-item {
+    line-height: 1;
+    font-size: 100px;
+    border-radius: 50%;
+    position: absolute;
+    .flex();
+
+    .iconfont {
+      opacity: 0;
+      z-index: 1;
+      position: relative;
+      animation: scale 4s;
+
+      &::after {
+        content: '';
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        opacity: .8;
+        box-shadow: 0 0 1em .5em #fff;
+        background-color: @yellow;
+        position: absolute;
+      }
+    }
+
+    &.pink {
+      .iconfont {
+        filter: blur(2px);
+        &::after {
+          box-shadow: 0 0 1em .5em @red;
+        }
+      }
+
+      .arrow-item-light {
+        &::before {
+          content: '';
+          left: 10%;
+          top: -300%;
+          width: 80%;
+          height: 700%;
+          opacity: .3;
+          background-image: linear-gradient(to bottom, transparent, lighten(@red, 20%), transparent);
+          position: absolute;
+        }
+      }
+    }
+  }
+
+
+  .arrow-item-light {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
+    opacity: 0;
+    position: absolute;
+    animation: light 3s;
+
+    &::before {
+      content: '';
+      left: 10%;
+      top: -300%;
+      width: 80%;
+      height: 700%;
+      opacity: .3;
+      background-image: linear-gradient(to bottom, transparent, lighten(@yellow, 20%), transparent);
+      position: absolute;
+    }
+  }
+
+  @keyframes light {
+    0% {
+      opacity: 0;
+    }
+    30% {
+      opacity: .6;
+    }
+    100% {
+      opacity: .1;
+    }
+  }
+
+  @keyframes scale {
+    0%, 70% {
+      opacity: 1;
+      color: #fff;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      color: fadeout(@yellow, 20%);
+      transform: scale(.7);
+    }
+  }
+
+  .member-cg {
+    left: 55%;
+    bottom: 50%;
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%) translateY(70%);
+  }
+
+  .member-logo {
+    top: 40%;
+    left: 40%;
+    filter: invert(100%);
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .member-stars {
+    top: 60%;
+    left: 50%;
+    font-size: 70px;
+    filter: drop-shadow(2px 4px 6px black);
+    z-index: 2;
+    letter-spacing: -.1em;
+    position: absolute;
+    animation: starSlowMove 10s forwards;
+
+    .iconfont {
+      opacity: 0;
+      animation: starShow 1s forwards;
+
+      &:nth-child(1) {
+        animation-delay: .1s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: .2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: .3s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: .4s;
+      }
+
+      &:nth-child(5) {
+        animation-delay: .5s;
+      }
+
+      &:nth-child(6) {
+        animation-delay: .6s;
+      }
+    }
+  }
+
+  @keyframes starShow {
+    0% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes starSlowMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(10%);
+    }
+  }
+
+  .member-garish {
+    opacity: .5;
+  }
+
+  .member-info {
+    top: 70%;
+    left: 50%;
+    text-shadow: 2px 2px 8px @black;
+    font-family: noto sans sc, sans-serif;
+    font-weight: 800;
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    animation: starSlowMove 15s forwards;
+
+    .info-type {
+      text-align: right;
+      margin-right: 4px;
+      color: #000;
+    }
+
+    .info-type-cn {
+      font-size: 40px;
+    }
+    
+    .info-name {
+      margin-left: 4px;
+      font-size: 30px;
+    }
+
+    .info-name-cn {
+      font-size: 60px;
+    }
+  }
+}
+
+.member-get-break {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+}

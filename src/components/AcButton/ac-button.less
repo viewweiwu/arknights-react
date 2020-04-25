@@ -1,0 +1,23 @@
+@import "../../assets/less/variable.less";
+
+.ac-button {
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: @black;
+  user-select: none;
+
+  &.large {
+    height: 60px;
+    font-size: 18px;
+  }
+
+  &.blue {
+    background-color: darken(@blue, 10%);
+  }
+
+  & + & {
+    margin-left: @space;
+  }
+}

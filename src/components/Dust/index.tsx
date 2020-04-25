@@ -98,7 +98,7 @@ export default function () {
 
   useEffect(() => {
     $canvas.current && new Dust($canvas.current)
-  })
+  }, [])
 
   return (
     <div className="dust">

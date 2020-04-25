@@ -1,0 +1,152 @@
+@import "~@/assets/less/variable.less";
+
+.recruit {
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  backdrop-filter: blur(10px);
+}
+
+.recruit-title {
+  margin: 0 100px;
+  padding: @space2 0;
+  padding-left: 10%;
+  font-size: 18px;
+  font-weight: normal;
+  background-color: rgba(0, 0, 0, .5);
+  position: relative;
+
+  &::after {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: @orange;
+    position: absolute;
+  }
+}
+
+.open-list {
+  margin: 0 100px;
+  height: ~'calc(100% - 60px)';
+  padding-bottom: 4%;
+}
+
+.open-list-item {
+  width: 49%;
+  height: 48%;
+  margin-right: 2%;
+  margin-top: 2%;
+  border: 1px solid #fff;
+  float: left;
+
+  .item-num {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1;
+    .flex();
+    position: absolute;
+  }
+
+  .item-empty {
+    height: 100%;
+    text-shadow: 2px 2px 6px @black;
+    background-color: rgba(255, 255, 255, .2);
+    background-image: linear-gradient(hsla(0,0%,100%,.1) 1px,transparent 0),linear-gradient(90deg,hsla(0,0%,100%,.1) 1px,transparent 0);
+    background-size: 10px 10px;
+    .flex();
+    flex-direction: column;
+    cursor: pointer;
+
+    p {
+      margin-top: @space;
+      font-size: 20px;
+    }
+  }
+
+  .item-add {
+    font-size: 44px;
+  }
+
+  .item-searching {
+    height: 100%;
+    padding: @space2;
+    color: #333;
+    background-color: rgba(255, 255, 255, .8);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    header {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      padding-left: 80px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .5); 
+      font-size: 16px;
+      position: absolute;
+    }
+
+    main {
+      padding-top: 60px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    footer {
+      display: flex;
+    }
+
+    .item-left {
+      margin-left: 20px;
+      margin-right: 20px;
+      .flex();
+      flex-direction: column;
+    }
+
+    .ac-button {
+      flex: 1;
+    }
+  }
+
+  .item-tag {
+    padding: 0 @space;
+    border-radius: @space;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
+  }
+
+  .item-finished {
+    height: 100%;
+    padding: 70px @space2 @space2;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    background-color: rgba(255, 255, 255, .8);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .ac-button {
+      width: 100%;
+    }
+  }
+
+  .ac-button {
+    background-image: url(~@/assets/images/dot-gray.png);
+    background-size: auto 100%;
+    box-shadow: 0 4px 10px @black;
+  }
+
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,73 @@
+@import "../../assets/less/variable.less";
+
+.ac-message {
+  right: 0;
+  top: 100px;
+  width: 270px;
+  padding: 10px;
+  box-shadow: 0 4px 10px @black;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .8);
+  z-index: 10000;
+  position: fixed;
+  transition: 300ms;
+  animation: messageShow 300ms;
+  display: flex;
+  align-items: center;
+  
+  &.hide {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  &.warning {
+    color: @orange;
+
+    &::after {
+      background-image: url(~@/assets/images/dot-orange-horizontal.png);
+    }
+  }
+
+  &.error {
+    color: @red;
+
+    &::after {
+      background-image: url(~@/assets/images/dot-red-horizontal.png);
+    }
+  }
+
+  &.success {
+    color: @green;
+
+    &::after {
+      background-image: url(~@/assets/images/dot-green-horizontal.png);
+    }
+  }
+
+  &::after {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+    background-image: url(~@/assets/images/dot-white-horizontal.png);
+    background-size: 150px auto;
+    background-repeat: repeat-y;
+    position: absolute;
+  }
+}
+
+@keyframes messageShow {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.ac-message-icon {
+  font-size: 40px;
+  margin: 0 10px;
+}

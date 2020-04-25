@@ -2,9 +2,12 @@ import React from 'react'
 import HomeSide from './HomeSide'
 import HomeBanner from './HomeBanner'
 import { RouteComponentProps } from 'react-router'
-import cg from '@/assets/images/char_103_angel_wild.png'
+// import cg from '@/assets/images/char_103_angel_wild.png'
 import eye from '@/assets/images/eye.gif'
 import './home.less'
+import Dust from '@/components/Dust'
+
+let cg = 'http://ak.mooncell.wiki/images/1/13/%E7%AB%8B%E7%BB%98_%E8%83%BD%E5%A4%A9%E4%BD%BF_skin1.png'
 
 export default function Home (props: RouteComponentProps) {
   return (
@@ -30,6 +33,7 @@ export default function Home (props: RouteComponentProps) {
           <p className="account-id">ID:61675947</p>
         </div>
       </section>
+      <Dust />
       <HomeBanner />
       <HomeSide {...props} />
     </div>
