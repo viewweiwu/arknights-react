@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-23 19:20:37
- * @LastEditTime: 2020-04-25 22:26:18
+ * @LastEditTime: 2020-04-25 23:28:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /arknights-react/src/components/MemberGet/index.tsx
@@ -25,7 +25,9 @@ interface ArrowItem {
   size: number,
   color: string,
   direction: string,
-  moved: boolean
+  moved: boolean,
+  moveType: string,
+  moveDirection: string
 }
 
 /**
@@ -33,13 +35,25 @@ interface ArrowItem {
  * @return {void}
  */
 let createArrowItem = () => {
+  let w = window.innerWidth
+  let h = window.innerHeight
   const color = ['pink', 'white'][getRandomFloor(0, 1)]
+  const moveType = ['blink', 'move'][getRandomFloor(0, 1)]
+  const moveDirection = ['left-to-right', 'right-to-left'][getRandomFloor(0, 1)]
+  const left = moveType === 'blink'
+    ? getRandomFloor(0, w)
+    : moveDirection === 'left-to-right'
+      ? getRandomFloor(0, w * .2)
+      : getRandomFloor(w * .8, w)
+    
   return {
     id: Date.now() + Math.random(),
     top: color === 'pink'
-      ? getRandomFloor(window.innerHeight * 0.3, window.innerHeight * 0.7)
-      : getRandomFloor(window.innerHeight * 0.7, window.innerHeight),
-    left: getRandomFloor(0, window.innerWidth),
+      ? getRandomFloor(h * .3, h * .7)
+      : getRandomFloor(h * .7, h),
+    left,
+    moveType,
+    moveDirection,
     size: getRandomFloor(10, 30),
     color,
     direction: ['up', 'down'][getRandomFloor(0, 1)],
@@ -48,7 +62,7 @@ let createArrowItem = () => {
 }
 
 // 箭头元素上限
-let max = 30
+let max = 50
 
 const createDefaultArrow = (count: number) => {
   let newList: Array<ArrowItem> = []
@@ -94,14 +108,18 @@ export default function () {
 
   return (
     <div className="member-get">
+      <div className="shadow-page"></div>
       <Dust />
+      <div className="icon-large">
+        <i className="iconfont icon-fill-down"></i>
+      </div>
       <div className="arrow-wrap">
         {
           list.map(item => {
             return (
-              <div className={`arrow-item ${item.color}`} key={item.id} style={{ left: item.left + 'px', top: item.top + 'px' }}>
+              <div className={`arrow-item ${item.color} ${item.moveType} ${item.moveDirection}`} key={item.id} style={{ left: item.left + 'px', top: item.top + 'px' }}>
                 <div className="arrow-item-light"></div>
-                <i className={`icon-white iconfont icon-fill-${item.direction}`} style={{ fontSize: item.size }}></i>
+                <i className={`iconfont icon-fill-${item.direction}`} style={{ fontSize: item.size }}></i>
               </div>
             )
           })
@@ -131,6 +149,9 @@ export default function () {
           <p>Exusiai</p>
         </div>
       </main>
+      <div className="member-voice">
+        <p>口令是“企鹅帝国万岁”，你就是雇主吗？叫我能天使。我和那个冷淡的鲁珀人可不一样，你要是想找点有趣的事做，随时都可以来叫我！</p>
+      </div>
       <MemberGetBreak />
     </div>
   )

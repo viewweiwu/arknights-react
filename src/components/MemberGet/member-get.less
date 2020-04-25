@@ -11,7 +11,37 @@
   position: fixed;
   .flex();
 
-  .arrow-wrap {
+  .icon-large {
+    left: 50%;
+    top: 60%;
+    // opacity: .3;
+    // filter: blur(10px);
+    font-size: 1000px;
+    position: absolute;
+    transform: translate(-60%, 0);
+
+    .iconfont {
+      filter: blur(10px);
+      opacity: .3;
+    }
+
+    &::after {
+      content: '';
+      left: 50%;
+      bottom: 70%;
+      border-radius: 50%;
+      width: 1px;
+      height: 1px;
+      opacity: .4;
+      box-shadow: 0 0 300px 300px #fff;
+      z-index: -1;
+      position: absolute;
+      transform: translateX(-50%);
+    }
+  }
+
+  .arrow-wrap,
+  .arrow-wrap-vertical {
     top: 0;
     left: 0;
     width: 100%;
@@ -32,7 +62,7 @@
       opacity: 0;
       z-index: 1;
       position: relative;
-      animation: scale 4s;
+      animation: scaleMove 4s;
 
       &::after {
         content: '';
@@ -69,6 +99,22 @@
         }
       }
     }
+
+    &.move {
+      .iconfont {
+        animation-name: moveVertical;
+      }
+
+      .arrow-item-light {
+        display: none;
+      }
+
+      &.left-to-right {
+        .iconfont {
+          animation-name: moveVerticalToRight;
+        }
+      }
+    }
   }
 
 
@@ -94,6 +140,36 @@
     }
   }
 
+  @keyframes moveVertical {
+    0% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      color: fadeout(@yellow, 20%);
+      transform: translateX(-500px);
+    }
+  }
+
+  @keyframes moveVerticalToRight {
+    0% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      color: fadeout(@yellow, 20%);
+      transform: translateX(500px);
+    }
+  }
+
   @keyframes light {
     0% {
       opacity: 0;
@@ -106,7 +182,7 @@
     }
   }
 
-  @keyframes scale {
+  @keyframes scaleMove {
     0%, 70% {
       opacity: 1;
       color: #fff;
@@ -227,6 +303,21 @@
 
     .info-name-cn {
       font-size: 60px;
+    }
+  }
+
+  .member-voice {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 2;
+    background-image: linear-gradient(to top, #1e1e1e 60%, transparent);
+    position: absolute;
+    .flex();
+
+    p {
+      width: 50%;
     }
   }
 }

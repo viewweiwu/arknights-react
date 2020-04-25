@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import { getRandom, getRandomFloor } from '@/utils'
-import { useInterval, useTimeout } from '@/utils/useTimeout'
+import { getRandomFloor } from '@/utils'
 
 class Break {
   ctx: CanvasRenderingContext2D
