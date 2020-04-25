@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-23 19:20:37
- * @LastEditTime: 2020-04-25 23:28:49
+ * @LastEditTime: 2020-04-25 23:37:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /arknights-react/src/components/MemberGet/index.tsx
@@ -91,7 +91,12 @@ const clearMovedList = (list: Array<ArrowItem>, setList: (newList: Array<ArrowIt
   return newList
 }
 
-export default function () {
+interface MemberGetProps {
+  visible: boolean,
+  setVisible(visible: boolean): void
+}
+
+export default function (props: MemberGetProps) {
   let [ list, setList ] = useState<Array<ArrowItem>>(createDefaultArrow(5))
 
   useInterval(() => {
@@ -106,8 +111,9 @@ export default function () {
     }
   }, 200)
 
-  return (
-    <div className="member-get">
+  return props.visible
+    ? (
+    <div className="member-get" onClick={ () => props.setVisible(false) }>
       <div className="shadow-page"></div>
       <Dust />
       <div className="icon-large">
@@ -155,4 +161,5 @@ export default function () {
       <MemberGetBreak />
     </div>
   )
+  : null
 }

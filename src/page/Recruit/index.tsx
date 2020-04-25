@@ -8,6 +8,7 @@ import MemberGet from '@/components/MemberGet'
 
 export default function () {
   let history = useHistory()
+  let [ visible, setVisible ] = useState(false)
   let [data, setData] = useState([
     {
       num: 1,
@@ -32,7 +33,7 @@ export default function () {
   ])
 
   const handleConfirm = () => {
-    // info('消息！！', 1000)
+    setVisible(true)
     // warning('警告！！！', 2000)
     // error('错误！！！', 3000)
     // success('成功！！！', 4000)
@@ -104,7 +105,7 @@ export default function () {
           })
         }
       </ul>
-      <MemberGet />
+      <MemberGet visible={visible} setVisible={setVisible} />
     </div>
   )
 }
