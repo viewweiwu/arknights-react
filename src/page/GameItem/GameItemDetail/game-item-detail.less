@@ -1,0 +1,81 @@
+@import "~@/assets/less/variable.less";
+
+.game-item-detail {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  position: fixed;
+  .flex();
+  animation: fadein 300ms;
+
+  .detail-content {
+    width: 700px;
+    height: 300px;
+    box-shadow: 2px 4px @space @black;
+    padding: @space2;
+    background-color: @fade-white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .detail-name {
+    padding: @space / 2 @space;
+    border-radius: 4px;
+    background-color: @black;
+  }
+
+  .detail-right {
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    padding-right: @space;
+    text-align: right;
+    color: #000;
+    background-color: #c4c5c6;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .detail-label {
+    height: 100%;
+    padding: 0 @space;
+    box-sizing: border-box;
+    color: #ccc;
+    background-color: @black;
+  }
+
+  .detail-desc {
+    margin-top: @space;
+    font-style: italic;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+
+    img {
+      margin: @space2;
+      flex-shrink: 0;
+    }
+  }
+
+  .detail-main {
+    flex: 1;
+    padding: @space2 @space;
+    color: #000;
+    overflow: auto;
+  }
+
+  .detail-title {
+    margin: @space 0;
+    color: #999;
+  }
+}

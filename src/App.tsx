@@ -26,6 +26,10 @@ const routes = [
   {
     path: '/recruit',
     element: lazy(() => import('./page/Recruit'))
+  },
+  {
+    path: '/gameitem',
+    element: lazy(() => import('./page/GameItem'))
   }
 ]
 
