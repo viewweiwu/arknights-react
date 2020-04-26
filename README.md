@@ -1,4 +1,4 @@
-# Arknight 明日方舟复刻 React 版本
+# Arknights 明日方舟复刻（React）
 
 ## 本地预览方式
 暂时没有实际地址，需要本地预览。
