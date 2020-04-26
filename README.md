@@ -1,44 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Arknight 明日方舟复刻 React 版本
+暂时没有实际地址，需要本地预览。
 
-## Available Scripts
+## 界面预览
+![home.png](https://i.loli.net/2020/04/26/EZVhYW1iHBworL4.jpg)
+![chapter.png](https://i.loli.net/2020/04/26/SHagWLXlxzID8Ee.jpg)
+![member.png](https://i.loli.net/2020/04/26/liCHqBULpJE5nP4.jpg)
 
-In the project directory, you can run:
+## 页面布局
+- 首页 ✅
+  - 作战
+    - 章节选择 ✅
+      - 关卡选择
+  - 编队
+  - 干员 ✅
+  - 采购中心
+  - 公开招募 ✅
+  - 干员寻访
+  - 任务
+  - 基建
+  - 仓库
+- 成员加入队伍 ✅
 
-### `yarn start`
+## 页面特殊细节明细
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 首页
+  1. 角色立绘会眨眼
+  2. 鼠标视差效果
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 数据来源
+  图片数据来源 - [玩家自由构筑的明日方舟中文Wiki](http://ak.mooncell.wiki/w/%E9%A6%96%E9%A1%B5)

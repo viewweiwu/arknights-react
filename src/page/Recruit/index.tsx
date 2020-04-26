@@ -2,8 +2,9 @@ import React, { useState, ReactNode } from 'react'
 import './recruit.less'
 import AcButton from '@/components/AcButton'
 import { useHistory } from 'react-router'
-import { success } from '@/components/AcMessage'
+import { info, success } from '@/components/AcMessage'
 import MemberGet from '@/components/MemberGet'
+import { listenerCount } from 'cluster'
 
 
 export default function () {
@@ -34,19 +35,34 @@ export default function () {
 
   const handleConfirm = () => {
     setVisible(true)
+    info('获得能天使')
     // warning('警告！！！', 2000)
     // error('错误！！！', 3000)
     // success('成功！！！', 4000)
-    success(<ul style={{display: 'flex'}}>
-        <li>
-          <img height="60" src="http://ak.mooncell.wiki/images/thumb/6/6a/%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png/100px-%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png" alt=""/>
-          <p>道具A X3</p>
-        </li>
-        <li className="ml">
-          <img height="60" src="http://ak.mooncell.wiki/images/thumb/d/de/%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E6%8B%9B%E8%81%98%E8%AE%B8%E5%8F%AF.png/100px-%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E6%8B%9B%E8%81%98%E8%AE%B8%E5%8F%AF.png" alt=""/>
-          <p>道具B X3</p>
-        </li>
-      </ul>, 3999)
+    // success(<ul style={{display: 'flex'}}>
+    //     <li>
+    //       <img height="60" src="http://ak.mooncell.wiki/images/thumb/6/6a/%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png/100px-%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png" alt=""/>
+    //       <p>道具A X3</p>
+    //     </li>
+    //     <li className="ml">
+    //       <img height="60" src="http://ak.mooncell.wiki/images/thumb/d/de/%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E6%8B%9B%E8%81%98%E8%AE%B8%E5%8F%AF.png/100px-%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E6%8B%9B%E8%81%98%E8%AE%B8%E5%8F%AF.png" alt=""/>
+    //       <p>道具B X3</p>
+    //     </li>
+    //   </ul>, 3999)
+  }
+  
+  const finisheNow = (item: { status: string }) => {
+    data.forEach(obj => {
+      if (obj === item) {
+        obj.status = 'fnished'
+      }
+    })
+
+    setData(data)
+  }
+
+  const handleCancel = () => {
+    success('已经取消')
   }
   
   return (
@@ -84,8 +100,8 @@ export default function () {
                     </div>
                   </main>
                   <footer>
-                    <AcButton size="large">停止招募</AcButton>
-                    <AcButton size="large">立即招募</AcButton>
+                    <AcButton size="large" onClick={() => handleCancel() }>停止招募</AcButton>
+                    <AcButton size="large" onClick={() => finisheNow(item) }>立即招募</AcButton>
                   </footer>
                 </div>
                 break
