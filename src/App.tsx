@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  RouteComponentProps
+  RouteComponentProps,
+  Redirect
 } from "react-router-dom";
 
 const routes = [
@@ -30,10 +31,14 @@ const routes = [
   {
     path: '/gameitem',
     element: lazy(() => import('./page/GameItem'))
+  },
+  {
+    path: '/shop',
+    element: lazy(() => import('./page/Shop'))
   }
 ]
 
-export default function App () {
+export default function () {
   return (
     <Router>
       <Switch>
@@ -45,7 +50,7 @@ export default function App () {
                 path={route.path}
                 key={route.path}
                 render={
-                  (props:RouteComponentProps) => (
+                  (props: RouteComponentProps) => (
                     <Suspense fallback={<div>...</div>}>
                       <route.element {...props} />
                     </Suspense>   

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-23 19:20:37
- * @LastEditTime: 2020-04-25 23:37:10
+ * @LastEditTime: 2020-04-27 18:37:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /arknights-react/src/components/MemberGet/index.tsx
@@ -12,10 +12,10 @@ import { getRandomFloor } from '@/utils'
 import { useInterval } from '@/utils/useTimeout'
 import Dust from '../Dust'
 import MemberGetBreak from './MemberGetBreak'
+const garish = require('./poly.png')
 
 const cg = 'http://ak.mooncell.wiki/images/1/13/%E7%AB%8B%E7%BB%98_%E8%83%BD%E5%A4%A9%E4%BD%BF_skin1.png'
 const logo = 'http://ak.mooncell.wiki/images/f/f3/Skin_logo_%E7%94%9F%E5%91%BD%E4%B9%8B%E5%9C%B0.png'
-const garish = 'http://ak.mooncell.wiki/images/4/49/%E5%B9%B2%E5%91%98%E4%BF%A1%E6%81%AF_%E8%83%8C%E6%99%AF.png'
 const type = 'http://ak.mooncell.wiki/images/d/d1/%E5%9B%BE%E6%A0%87_%E8%81%8C%E4%B8%9A_%E7%8B%99%E5%87%BB_%E5%A4%A7%E5%9B%BE.png'
 
 interface ArrowItem {
@@ -131,7 +131,7 @@ export default function (props: MemberGetProps) {
           })
         }
       </div>
-      {/* <img className="member-garish" src={garish} alt=""/> */}
+      <img className="member-garish" src={garish} alt=""/>
       <img className="member-cg" src={cg} alt=""/>
       <img className="member-logo" src={logo} alt=""/>
       <div className="member-stars">

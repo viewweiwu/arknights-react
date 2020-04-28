@@ -77,7 +77,7 @@ export default function (props: RouteComponentProps) {
               <div className="home-side-black-gap"></div>
             </div>
             <div className="home-side-row row-primary">
-              <div className="home-side-item item-blue item-title-end item-row2-col1">
+              <div className="home-side-item item-blue item-title-end item-row2-col1" onClick={() => goPage('/shop')}>
                 <p className="item-title">采购中心</p>
                 <div className="item-icon"></div>
               </div>
@@ -87,7 +87,7 @@ export default function (props: RouteComponentProps) {
                   <span>招募</span>
                 </p>
                 <div className="item-multi-content">
-                  <div className="item-multi-item item-row2-col2">
+                  <div className="item-multi-item item-row2-col2" onClick={() => goPage('/recruit')}>
                     <p className="item-multi-title">公开招募</p>
                     <div className="item-icon"></div>
                   </div>
@@ -107,7 +107,7 @@ export default function (props: RouteComponentProps) {
                 <p className="item-title">基建</p>
                   <div className="item-icon"></div>
               </div>
-              <div className="home-side-item item-end item-row3-col3">
+              <div className="home-side-item item-end item-row3-col3" onClick={() => goPage('/gameitem')}>
                 <p className="item-title">仓库</p>
                 <div className="item-icon"></div>
               </div>

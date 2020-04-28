@@ -55,7 +55,7 @@ export default function () {
         </div>
       </div>
       {
-        visible && <GameItemDetail item={selectedItem} setVisible={setVisible} />
+        visible && <GameItemDetail item={selectedItem} onClose={() => setVisible(false)} />
       }
     </div>
   )

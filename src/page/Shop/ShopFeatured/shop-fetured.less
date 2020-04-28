@@ -1,0 +1,88 @@
+@import "~@/assets/less/variable.less";
+
+.shop-featured {
+  height: 100%;
+  position: relative;
+}
+
+.shop-cg {
+  top: -40px;
+  left: 85%;
+  height: 120%;
+  z-index: 1;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.featured-tabs {
+  top: 5%;
+  left: 5%;
+  height: 90%;
+  width: 70%;
+  background-color: rgba(0, 0, 0, .1);
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+
+  aside {
+    width: 230px;
+    background-image: linear-gradient(#5e5f60, #2c2d2f);
+  }
+
+  .aside-item {
+    height: 60px;
+    color: #fff;
+    border: 1px solid #7b7b7b;
+    user-select: none;
+    position: relative;
+    .flex();
+
+    &.active {
+      color: #333;
+      border: 1px solid #7b7b7b;
+      background-color: #fff;
+    }
+  }
+
+  .aside-item + .aside-item {
+    border-top: none;
+  }
+
+  time {
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    
+    .iconfont {
+      color: #333;
+      position: relative;
+    }
+
+    &::before {
+      content: '';
+      top: 0;
+      left: -12px;
+      width: 40px;
+      height: 40px;
+      background-color: @yellow;
+      position: absolute;
+      transform-origin: right top;
+      transform: rotate(45deg);
+    }
+  }
+
+  main {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    .flex();
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

@@ -3,13 +3,13 @@ import './game-item-detail.less'
 
 interface GameItemDetail {
   item: GameItem,
-  setVisible(visible: boolean): void
+  onClose?(): void
 }
 
 export default function (props: GameItemDetail) {
   let item = props.item
   return (
-    <div className="game-item-detail" onClick={() => props.setVisible(false)}>
+    <div className="game-item-detail" onClick={() => props.onClose && props.onClose()}>
       <div className="detail-content">
         <header>
           <span className="detail-name">{item.name}</span>

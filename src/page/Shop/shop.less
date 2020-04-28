@@ -1,0 +1,109 @@
+@import "~@/assets/less/variable.less";
+
+.shop {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-header {
+  height: 120px;
+  background-color: lighten(@black, 10%);
+  display: flex;
+  align-items: flex-end;
+}
+
+.shop-tab {
+  width: 100%;
+  padding: 0 @space3;
+  display: flex;
+}
+
+.shop-tab-item {
+  flex: 1;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+  transition: color 300ms;
+  .flex();
+
+  .iconfont {
+    margin-right: @space;
+    position: relative;
+    transform: rotate(-30deg);
+    transition: transform 300ms;
+  }
+
+  &::before {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid darken(@red, 20%);
+    background-color: #fff;
+    position: absolute;
+    transform: translateY(100%);
+    transition: 300ms;
+  }
+
+  &.active {
+    color: lighten(@black, 10%);
+
+    &:before {
+      transform: translateY(0);
+    }
+    
+    .iconfont {
+      color: darken(@red, 20%);
+      transform: rotate(0deg) scale(1.5);
+    }
+  }
+
+  .item-name {
+    position: relative;
+  }
+}
+
+.shop-body {
+  height: ~'calc(100% - 120px)';
+  color: #333;
+  background-color: #fff;
+}
+
+.shop-voice {
+  top: 50%;
+  right: 10px;
+  width: 23%;
+  line-height: 1.5em;
+  padding: 20px 10px 10px;
+  border: 1px solid @yellow;
+  box-shadow: inset 0 0 5px @yellow;
+  color: @yellow;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 2;
+  position: absolute;
+  user-select: none;
+  cursor: pointer;
+
+  mark {
+    margin-right: 4px;
+    padding: 0 4px;
+  }
+
+  p {
+    top: 0;
+    left: 0;
+    line-height: 1;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: lighter;
+    position: absolute;
+    display: flex;
+  }
+}
