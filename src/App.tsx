@@ -35,6 +35,10 @@ const routes = [
   {
     path: '/shop',
     element: lazy(() => import('./page/Shop'))
+  },
+  {
+    path: '/live',
+    element: lazy(() => import('./page/Live'))
   }
 ]
 
