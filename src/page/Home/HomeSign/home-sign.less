@@ -1,0 +1,231 @@
+@import "~@/assets/less/variable.less";
+
+.sign {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 2;
+  position: fixed;
+  .flex()
+}
+
+.sign-header {
+  padding: @space @space2;
+  display: flex;
+  align-items: center;
+
+  mark {
+    margin: 0 @space;
+    font-size: 20px;
+    color: inherit;
+    background-color: inherit;
+  }
+
+  .iconfont {
+    font-size: 44px;
+  }
+}
+
+.sign-content {
+  width: 1000px;
+  border-top: 6px solid @orange;
+  display: flex;
+  position: relative;
+}
+
+.sign-grid {
+  width: 720px;
+  padding-right: 20px;
+  background-color: fadeout(@black, 20%);
+  position: relative;
+}
+
+.sign-grid-border,
+.sign-grid-main {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sign-grid-item {
+  position: relative;
+}
+
+.sign-grid-border {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  mask-repeat: no-repeat;
+  mask-size: 300px 300px;
+  mask-image: radial-gradient(circle, #fff, transparent 150px);
+  mask-position: -500px -500px;
+
+  .sign-grid-item {
+    border: 2px solid #ddd;
+  }
+}
+
+.sign-grid-item {
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+  border: 2px solid transparent;
+  .flex();
+  color: @gray;
+  position: relative;
+  transition: 300ms;
+
+  .iconfont {
+    z-index: 2;
+    font-size: 34px;
+    color: #fff;
+    position: relative;
+  }
+
+  &.checked {
+    .sign-grid-image {
+      opacity: .5;
+    }
+  }
+
+  &.active {
+    &::before {
+      content: '';
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background-color: darken(@orange, 20%);
+      position: absolute;
+    }
+  }
+
+  &:hover,
+  &.active {
+    color: #fff;
+    border-color: #fff;
+
+    .sign-grid-number {
+      color: #fff;
+    }
+  }
+}
+
+.sign-grid-number {
+  top: 0;
+  left: 0;
+  font-size: 40px;
+  color: @gray;
+  position: absolute;
+}
+
+.sign-grid-count {
+  right: @space / 2;
+  bottom: @space / 2;
+  border-radius: 13px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, .3);
+  position: absolute;
+}
+
+.sign-grid-image {
+  right: @space / 2;
+  bottom: @space / 2;
+  position: absolute;
+}
+
+.sign-aside {
+  flex: 1;
+  background-color: @orange;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-aside-content {
+  width: 50%;
+  height: 80%;
+  margin-left: -@space;
+  box-shadow: 0 4px @space #000;
+  background-color: darken(@black, 10%);
+  z-index: 2;
+  position: relative;
+
+  time {
+    width: 100%;
+    padding: @space;
+    color: @gray;
+    margin-bottom: @space;
+    box-shadow: 0 4px @space #000;
+    text-align: right;
+    display: block;
+  }
+}
+
+.sign-aside-info {
+  margin: @space2 0;
+  position: relative;
+  text-align: center;
+  
+  img {
+    z-index: 1;
+    position: relative;
+  }
+}
+  
+.sign-aside-name {
+  right: 0;
+  bottom: 100%;
+  font-size: 18px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  color: #000;
+  position: absolute;
+}
+
+.sign-aside-bar {
+  top: 50%;
+  left: 50%;
+  padding: @space / 2 @space;
+  width: 140%;
+  background-color: #555657;
+  text-align: right;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.sign-aside-tag {
+  margin: @space2 @space 0;
+  padding: 0 @space;
+  border-radius: 10px;
+  color: @black;
+  background-color: @gray;
+  display: inline-block;
+}
+
+.sign-confirm {
+  flex: 1;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  .flex();
+}
+
+.sign-close {
+  top: -8px;
+  right: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 40px;
+  box-shadow: 0 4px @space @black;
+  color: #555657;
+  background-color: #c4c5c6;
+  position: absolute;
+  cursor: pointer;
+  .flex();
+  transform: translate(30%, -30%);
+}

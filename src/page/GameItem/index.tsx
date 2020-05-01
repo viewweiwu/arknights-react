@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import gameItemList from '@/assets/json/game-item.json'
-import './game-item.less'
 import { useHistory } from 'react-router'
-import GameItemDetail from './GameItemDetail'
+import GameItemDetail from './GameItemDetail' // 道具详情展示
+import gameItemList from '@/assets/json/game-item.json' // 道具数据源
+import './game-item.less'
 
 export default function () {
+  // 选中的道具
   let [selectedItem, setSelectedItem] = useState<GameItem>(
     {
       name: '',
@@ -17,10 +18,15 @@ export default function () {
       id: ''
     }
   )
+  // 是否展示道具详情
   let [visible, setVisible] = useState<boolean>(false)
 
   let history = useHistory()
 
+  /**
+   * 是否展示详情
+   * @param {GameItem} item 道具信息
+   */
   const showDetail = (item: GameItem) => {
     setSelectedItem(item)
     setVisible(true)

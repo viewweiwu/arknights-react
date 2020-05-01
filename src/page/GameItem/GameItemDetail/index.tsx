@@ -8,6 +8,7 @@ interface GameItemDetail {
 
 export default function (props: GameItemDetail) {
   let item = props.item
+  
   return (
     <div className="game-item-detail" onClick={() => props.onClose && props.onClose()}>
       <div className="detail-content">

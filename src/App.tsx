@@ -3,8 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  RouteComponentProps,
-  Redirect
+  RouteComponentProps
 } from "react-router-dom";
 
 const routes = [

@@ -1,15 +1,36 @@
-import React from 'react'
-import HomeSide from './HomeSide'
-import HomeBanner from './HomeBanner'
-import { RouteComponentProps } from 'react-router'
-// import cg from '@/assets/images/char_103_angel_wild.png'
-import eye from '@/assets/images/eye.gif'
-import './home.less'
-import Dust from '@/components/Dust'
 
+import * as React from 'react'
+import { RouteComponentProps } from 'react-router'
+import HomeSide from './HomeSide' // 主页右边选卡
+import HomeBanner from './HomeBanner' // 主页右边内容
+import Dust from '@/components/Dust' // 头皮屑特效
+import HomeSign from './HomeSign' // 每日签到
+import eye from '@/assets/images/eye.gif' // 能天使眼睛动画 gif
+import dayjs from 'dayjs'
+import './home.less'
+
+// 能天使立绘
 let cg = 'http://ak.mooncell.wiki/images/1/13/%E7%AB%8B%E7%BB%98_%E8%83%BD%E5%A4%A9%E4%BD%BF_skin1.png'
 
+/**
+ * 获得今日是否已经签到
+ * @returns {Boolean} singed 是否签到
+ */
+const getTodaySigned = (): boolean => {
+  const date = new Date()
+  // 从缓存获取已经签到的日期
+  const signedDate =  localStorage.getItem('SIGNED_DATE')
+  if (signedDate && signedDate === dayjs(date).format('YYYY-MM-DD')) {
+    return false
+  } else {
+    return true
+  }
+}
+
 export default function Home (props: RouteComponentProps) {
+  // 每日签到是否展示
+  const [ signVisible, setSignVisible ] = React.useState<boolean>(getTodaySigned())
+
   return (
     <div className="home">
       <section className="chara-cg">
@@ -34,8 +55,9 @@ export default function Home (props: RouteComponentProps) {
         </div>
       </section>
       <Dust />
-      <HomeBanner />
+      <HomeBanner onSign={() => setSignVisible(true)} />
       <HomeSide {...props} />
+      { signVisible && <HomeSign onClose={()=> setSignVisible(false)} /> }
     </div>
   )
 }

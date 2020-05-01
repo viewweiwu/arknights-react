@@ -2,6 +2,7 @@ import React from 'react'
 import './chapter.less'
 import { useHistory } from 'react-router'
 
+// 章节数据
 const chapterList = [
   {
     title: '黑暗时代·上',
@@ -49,6 +50,7 @@ const chapterList = [
 
 export default function () {
   let history = useHistory()
+  
   return (
     <div className="chapter">
       <div className="tool">

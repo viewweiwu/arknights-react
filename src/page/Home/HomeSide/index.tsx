@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState, SetStateAction, Dispatch } from 'react'
 import { RouteComponentProps } from 'react-router'
-import Parallax from 'parallax-js'
-import dayjs from 'dayjs'
+import Parallax from 'parallax-js' // 鼠标视差特效
+import dayjs from 'dayjs' // 日期转换
 import './home-side.less'
 
 let timer: NodeJS.Timeout
+/**
+ * 计时每日
+ * @param {Function} setDate 设置日期
+ */
 function loopDate (setDate: Dispatch<SetStateAction<Date>>): void {
   timer && clearTimeout(timer)
   timer = setTimeout(() => {
@@ -15,17 +19,26 @@ function loopDate (setDate: Dispatch<SetStateAction<Date>>): void {
 
 
 export default function (props: RouteComponentProps) {
+  const [ date, setDate ] = useState(new Date()) // 每日计时
   const parallax = useRef(null)
-  const [ date, setDate ] = useState(new Date())
 
+  /**
+   * 跳转到指定页面
+   * @param {String} path 具体页面路径
+   */
   function goPage (path: string): void {
     clearTimeout(timer)
     props.history.push(path)
   }
 
   useEffect(() => {
-    parallax.current && new Parallax(parallax.current)
+    const p = new Parallax(parallax.current)
     loopDate(setDate)
+    
+    return () => {
+      clearTimeout(timer)
+      p.destroy()
+    }
   }, [])
 
   return (
