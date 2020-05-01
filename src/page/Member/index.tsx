@@ -1,6 +1,7 @@
 import React from 'react'
 import MemberInfo from './MemberInfo'
 import memberList from './member.json'
+import AcScroll from '@/components/AcScroll'
 import './member.less'
 import { useHistory } from 'react-router'
 
@@ -14,7 +15,7 @@ export default function () {
           <i className="iconfont icon-back"></i>
         </button>
       </div>
-      <div className="shadow-scroll">
+      <AcScroll className="shadow-scroll">
         <div className="member-content">
           <div className="member-list">
             {
@@ -24,9 +25,10 @@ export default function () {
             }
             <div className="member-item empty"></div>
             <div className="member-item empty"></div>
+            <div className="member-item empty"></div>
           </div>
         </div>
-      </div>
+      </AcScroll>
     </div>
   )
 }

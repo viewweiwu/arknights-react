@@ -1,6 +1,8 @@
 import React from 'react'
 import './chapter.less'
 import { useHistory } from 'react-router'
+import Dust from '@/components/Dust'
+import AcScroll from '@/components/AcScroll'
 
 // 章节数据
 const chapterList = [
@@ -48,6 +50,7 @@ const chapterList = [
   }
 ]
 
+
 export default function () {
   let history = useHistory()
   
@@ -58,8 +61,9 @@ export default function () {
           <i className="iconfont icon-back"></i>
         </button>
       </div>
+      <Dust />
       <div className="shadow-page"></div>
-      <div className="shadow-scroll">
+      <AcScroll className="shadow-scroll">
         <div className="chapter-select">
           {
             chapterList.map(chapter => {
@@ -74,14 +78,14 @@ export default function () {
                     </div>
                   </div>
                   <div className="item-content btn">
-                    <img src={chapter.src} alt=""/>
+                    <img src={chapter.src} alt="" draggable="false" />
                   </div>
                 </div>
               )
             })
           }
         </div>
-      </div>
+      </AcScroll>
     </div>
   )
 }

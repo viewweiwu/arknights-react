@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import GameItemDetail from './GameItemDetail' // 道具详情展示
 import gameItemList from '@/assets/json/game-item.json' // 道具数据源
 import './game-item.less'
+import AcScroll from '@/components/AcScroll'
 
 export default function () {
   // 选中的道具
@@ -40,7 +41,7 @@ export default function () {
           <i className="iconfont icon-back"></i>
         </button>
       </div>
-      <div className="shadow-scroll">
+      <AcScroll className="shadow-scroll">
         <div className="game-item-content">
           <div className="game-item-list">
             {
@@ -59,7 +60,7 @@ export default function () {
             <div className="game-item-item empty"></div>
           </div>
         </div>
-      </div>
+      </AcScroll>
       {
         visible && <GameItemDetail item={selectedItem} onClose={() => setVisible(false)} />
       }

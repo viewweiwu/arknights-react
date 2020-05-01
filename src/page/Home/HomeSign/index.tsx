@@ -116,7 +116,7 @@ export default function (props: SignProps) {
         <aside className="sign-aside">
           <div className="sign-aside-content">
             <time>
-              <i className="iconfont icon-clock"></i>
+              <i className="iconfont icon-time"></i>
               <span className="gap">08:44:44</span>
             </time>
             <span className="sign-aside-tag">常规配给</span>

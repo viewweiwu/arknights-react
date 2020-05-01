@@ -42,7 +42,7 @@ export default function (props: RouteComponentProps) {
   }, [])
 
   return (
-    <div className="home-side">
+    <aside className="home-side">
       <div className="event" ref={parallax}>
         <div className="home-side-parallax" data-depth="0.5">
           <div className="home-side-content">
@@ -65,36 +65,36 @@ export default function (props: RouteComponentProps) {
               </li>
             </ul>
             <div className="home-side-row row-first">
-              <div className="home-side-item item-fight" onClick={() => goPage('/chapter')}>
-                <div className="fight-info">
+              <ul className="home-side-item item-fight" onClick={() => goPage('/chapter')}>
+                <li className="fight-info">
                   <p className="primary">255</p>
                   <p className="sub">理智/90</p>
-                </div>
-                <div className="fight-content">
+                </li>
+                <li className="fight-content">
                   <p className="item-title">作战</p>
                   <p className="item-tag">当前</p>
                   <p>2-9 漫漫长夜</p>
                   <div className="item-icon"></div>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
-            <div className="home-side-row row-sub">
-              <div className="home-side-item item-row1-col1">
+            <ul className="home-side-row row-sub">
+              <li className="home-side-item item-row1-col1">
                 <p className="item-title">编队</p>
                 <div className="item-icon"></div>
-              </div>
-              <div className="home-side-item item-row1-col2" onClick={() => goPage('/member')}>
+              </li>
+              <li className="home-side-item item-row1-col2" onClick={() => goPage('/member')}>
                 <p className="item-title">干员</p>
                 <div className="item-icon"></div>
-              </div>
-              <div className="home-side-black-gap"></div>
-            </div>
-            <div className="home-side-row row-primary">
-              <div className="home-side-item item-blue item-title-end item-row2-col1" onClick={() => goPage('/shop')}>
+              </li>
+              <li className="home-side-black-gap"></li>
+            </ul>
+            <ul className="home-side-row row-primary">
+              <li className="home-side-item item-blue item-title-end item-row2-col1" onClick={() => goPage('/shop')}>
                 <p className="item-title">采购中心</p>
                 <div className="item-icon"></div>
-              </div>
-              <div className="home-side-item item-blue item-multi">
+              </li>
+              <li className="home-side-item item-blue item-multi">
                 <p className="item-name">
                   <span className="item-icon"></span>
                   <span>招募</span>
@@ -109,25 +109,25 @@ export default function (props: RouteComponentProps) {
                     <div className="item-icon"></div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="home-side-row row-end">
-              <div className="home-side-item item-row3-col1">
+              </li>
+            </ul>
+            <ul className="home-side-row row-end">
+              <li className="home-side-item item-row3-col1">
                 <p className="item-title">任务</p>
                   <div className="item-icon"></div>
-              </div>
-              <div className="home-side-item item-row3-col2">
+              </li>
+              <li className="home-side-item item-row3-col2">
                 <p className="item-title">基建</p>
                   <div className="item-icon"></div>
-              </div>
-              <div className="home-side-item item-end item-row3-col3" onClick={() => goPage('/gameitem')}>
+              </li>
+              <li className="home-side-item item-end item-row3-col3" onClick={() => goPage('/gameitem')}>
                 <p className="item-title">仓库</p>
                 <div className="item-icon"></div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   )
 }
