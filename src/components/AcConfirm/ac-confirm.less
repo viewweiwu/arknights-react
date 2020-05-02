@@ -1,0 +1,53 @@
+@import "../../assets/less/variable.less";
+
+.ac-confirm {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background-color: @fade-black;
+  position: fixed;
+  .flex();
+}
+
+.ac-confirm-content {
+  width: 700px;
+  height: 300px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-image: url(./confirm.png);
+  background-size: 950px 420px;
+  background-position: left bottom;
+  
+  footer {
+    height: 50px;
+    display: flex;
+
+    .btn {
+      border: none;
+      background-color: @black;
+      flex: 1;
+
+      .iconfont {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.ac-confirm-cancel {
+  background-image: url(./confirm.png);
+  background-position: -522px -46px;
+}
+
+.ac-confirm-confirm {
+  background-image: url(./confirm.png);
+  background-position: -12px -46px;
+}
+
+.ac-confirm-msg {
+  flex: 1;
+}

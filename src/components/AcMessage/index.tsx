@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './ac-message.less'
 
 interface MessageProps {
-  children?: React.ReactNode,
+  children?: ReactNode,
   type: string,
   time?: number,
   top: number
@@ -48,7 +48,6 @@ const createMessage = function (message: string | ReactNode, type: string, time:
 
   // 设置顶部边距
   let last = list.slice(-1)[0]
-  console.log(last)
   let top = last ? last.top + last.offsetHeight : defaultTop
   item.top = top
 

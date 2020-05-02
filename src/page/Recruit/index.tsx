@@ -1,13 +1,15 @@
 import React, { useState, ReactNode } from 'react'
 import './recruit.less'
-import AcButton from '@/components/AcButton'
 import { useHistory } from 'react-router'
-import { info, success } from '@/components/AcMessage'
+import { success } from '@/components/AcMessage'
+import { confirm } from '@/components/AcConfirm'
+import AcButton from '@/components/AcButton'
 import MemberGet from '@/components/MemberGet'
+
 
 export default function () {
   let history = useHistory()
-  let [ visible, setVisible ] = useState(true)
+  let [ visible, setVisible ] = useState(false)
   let [data, setData] = useState([
     {
       num: 1,
@@ -49,6 +51,10 @@ export default function () {
     //   </ul>, 3999)
   }
   
+  /**
+   * 立刻招募结束
+   * @param { Item } item 需要立刻结束的对象
+   */
   const finisheNow = (item: { status: string }) => {
     data.forEach(obj => {
       if (obj === item) {
@@ -60,6 +66,7 @@ export default function () {
   }
 
   const handleCancel = () => {
+    confirm('确定吗')
     success('已经取消')
   }
   
