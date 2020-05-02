@@ -74,17 +74,17 @@ export default function (props: MemberProps) {
   let member = props.member
   return (
     <div className="member-item">
-      <img className="item-uh" src={rarityMap[member.rarity as Rarity].uh} alt="角落"/>
-      <img className="item-class" src={classMap[member.class as MemberClass]} alt={member.class}/>
-      <img className="item-star" src={rarityMap[member.rarity as Rarity].star} alt={(Number(member.rarity) + 1) + '星'}/>
+      <img className="item-uh" src={rarityMap[member.rarity as Rarity].uh} alt="角落" draggable="false" />
+      <img className="item-class" src={classMap[member.class as MemberClass]} alt={member.class} draggable="false" />
+      <img className="item-star" src={rarityMap[member.rarity as Rarity].star} alt={(Number(member.rarity) + 1) + '星'} draggable="false" />
       <div className="item-content">
-        <img className="item-bg" src={rarityMap[member.rarity as Rarity].bg} alt="背景"/>
-        <img className="item-half" src={member.half} alt={member.cn + '半身'}/>
-        <img className="item-light" src={rarityMap[member.rarity as Rarity].light} alt="高光"/>
+        <img className="item-bg" src={rarityMap[member.rarity as Rarity].bg} alt="背景" draggable="false" />
+        <img className="item-half" src={member.half} alt={member.cn + '半身'} draggable="false" />
+        <img className="item-light" src={rarityMap[member.rarity as Rarity].light} alt="高光" draggable="false" />
       </div>
-      <img className="item-lh" src={rarityMap[member.rarity as Rarity].lh} alt="前景"/>
+      <img className="item-lh" src={rarityMap[member.rarity as Rarity].lh} alt="前景" draggable="false" />
       <div className="item-step">
-        <img src={rarityMap[member.rarity as Rarity].step} alt="高光"/>
+        <img src={rarityMap[member.rarity as Rarity].step} alt="高光" draggable="false" />
       </div>
       <div className="item-level">
         <span className="level-num">
@@ -96,7 +96,7 @@ export default function (props: MemberProps) {
           <circle cx="30" cy="30" r="25" strokeWidth="2" stroke="#fe2" fill="none" transform="matrix(0,-1,1,0,0,60)" strokeDasharray="100 314"></circle>
         </svg>
       </div>
-      <img className="item-skill" src="http://ak.mooncell.wiki/images/thumb/a/a7/%E6%8A%80%E8%83%BD_%E5%8D%81%E5%AD%97%E6%82%AC%E6%8C%82.png/100px-%E6%8A%80%E8%83%BD_%E5%8D%81%E5%AD%97%E6%82%AC%E6%8C%82.png" alt=""/>
+      <img className="item-skill" src="http://ak.mooncell.wiki/images/thumb/a/a7/%E6%8A%80%E8%83%BD_%E5%8D%81%E5%AD%97%E6%82%AC%E6%8C%82.png/100px-%E6%8A%80%E8%83%BD_%E5%8D%81%E5%AD%97%E6%82%AC%E6%8C%82.png" alt="" draggable="false" />
       <div className="item-cn">
         <span>{member.cn}</span>
       </div>

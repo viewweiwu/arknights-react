@@ -68,10 +68,10 @@ export default function () {
           }
         </aside>
         <main>
-          <img src={ getActiveTab(active).img } alt=""/>
+          <img src={ getActiveTab(active).img } alt="" draggable="false" />
         </main>
       </div>
-      <img className="shop-cg" src={cg} alt="可露希尔"/>
+      <img className="shop-cg" src={cg} alt="可露希尔" draggable="false" />
       <div className="shop-voice" onClick={() => changeIndex()}>
         <p>
           <mark>FROM</mark>

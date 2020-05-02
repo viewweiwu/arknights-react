@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import HomeSlider from '../HomeSlider' // 左下角轮播框
 import Parallax from 'parallax-js' // 鼠标视差特效
+import { confirm } from '@/components/AcConfirm'
 import './home-banner.less'
+import { info } from '@/components/AcMessage'
 
 interface HomeBannerProps {
   onSign(): void
@@ -24,11 +26,27 @@ export default function (props: HomeBannerProps) {
   const handleSign = () => {
     props.onSign()
   }
+
+  const handleGithub = () => {
+    const confirmMsg = (
+      <div className="(oﾟvﾟ)ノ">
+        <p>现在要跳转到本项目的 <i className="iconfont icon-github"></i> github 源码!</p>
+        <p>确定吗？(oﾟvﾟ)ノ</p>
+      </div>
+    )
+    confirm(confirmMsg).then(() => {
+      info('感谢你的支持！')
+      setTimeout(() => {
+        window.open('https://github.com/viewweiwu/arknights-react')
+      }, 2000)
+    }, () => {})
+  }
   
   return (
     <div className="home-banner event">
       <header className="home-banner-header">
-        <i className="iconfont icon-calendar btn" onClick={() => handleSign()}></i>
+        <i className="iconfont icon-calendar btn" onClick={handleSign}></i>
+        <i className="iconfont icon-github btn" onClick={handleGithub}></i>
       </header>
       <main ref={$parallax}>
         <div className="home-banner-parallax event" data-depth="0.3">

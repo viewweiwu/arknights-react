@@ -5,6 +5,8 @@ import { success } from '@/components/AcMessage' // 消息
 import { confirm } from '@/components/AcConfirm' // 确认框
 import AcButton from '@/components/AcButton' // 按钮
 import MemberGet from '@/components/MemberGet' // 干员入队
+import RecruitEditor from './RecruitEditor'
+import ReactDOM from 'react-dom'
 
 interface RecruitItem {
   num: number, // 格子坐标
@@ -12,10 +14,28 @@ interface RecruitItem {
   finished: boolean // 格子是否完成
 }
 
-export default function () {
+/**
+ * 编辑招募规则
+ */
+const handleEdit = () => {
+  const element = document.createElement('div')
+  document.body.appendChild(element)
+
+  const remove = () => {
+    ReactDOM.unmountComponentAtNode(element)
+    document.body.removeChild(element)
+  }
+
+  ReactDOM.render(
+    <RecruitEditor onClose={() => remove()} />,
+    element
+  )
+}
+
+export default function Recruit () {
   let history = useHistory()
   let [ visible, setVisible ] = useState(false)
-  let [data, setData] = useState<Array<RecruitItem>>([
+  let [ data, setData ] = useState<Array<RecruitItem>>([
     {
       num: 1,
       status: 'ready',
@@ -43,20 +63,6 @@ export default function () {
    */
   const handleConfirm = () => {
     setVisible(true)
-    // info('获得能天使')
-    // warning('警告！！！', 2000)
-    // error('错误！！！', 3000)
-    // success('成功！！！', 4000)
-    // success(<ul style={{display: 'flex'}}>
-    //     <li>
-    //       <img height="60" src="http://ak.mooncell.wiki/images/thumb/6/6a/%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png/100px-%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png" alt=""/>
-    //       <p>道具A X3</p>
-    //     </li>
-    //     <li className="ml">
-    //       <img height="60" src="http://ak.mooncell.wiki/images/thumb/d/de/%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E6%8B%9B%E8%81%98%E8%AE%B8%E5%8F%AF.png/100px-%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E6%8B%9B%E8%81%98%E8%AE%B8%E5%8F%AF.png" alt=""/>
-    //       <p>道具B X3</p>
-    //     </li>
-    //   </ul>, 3999)
   }
   
   /**
@@ -101,7 +107,7 @@ export default function () {
             let chidlren: ReactNode
             switch (item.status) {
               case 'ready':
-                chidlren = <div className="item-empty btn">
+                chidlren = <div className="item-empty btn" onClick={handleEdit}>
                   <i className="item-add iconfont icon-plus"></i>
                   <p>开始招募干员</p>
                 </div>
