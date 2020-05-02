@@ -12,12 +12,12 @@ const AcConfirm = (props: AcConfirmProps) => {
   return (
     <div className="ac-confirm">
       <div className="ac-confirm-content">
-        <div className="ac-confirm-msg">hello</div>
+        <div className="ac-confirm-msg">{props.children}</div>
         <footer>
-          <button className="ac-confirm-cancel btn">
+          <button className="ac-confirm-cancel btn" onClick={props.onCancel}>
             <i className="iconfont icon-close"></i>
           </button>
-          <button className="ac-confirm-confirm btn">
+          <button className="ac-confirm-confirm btn" onClick={props.onConfirm}>
             <i className="iconfont icon-check"></i>
           </button>
         </footer>
@@ -31,8 +31,32 @@ export const confirm = (msg: string | ReactNode) => {
     let element: HTMLDivElement = window.document.createElement('div')
     document.body.appendChild(element)
 
+    /**
+     * 取消
+     */
+    const handleCancel = () => {
+      reject()
+      remove()
+    }
+
+    /**
+     * 确认
+     */
+    const handleConfirm = () => {
+      resolve()
+      remove()
+    }
+
+    /**
+     * 移除元素
+     */
+    const remove = () => {
+      ReactDOM.unmountComponentAtNode(element)
+      document.body.removeChild(element)
+    }
+
     ReactDOM.render(
-      <AcConfirm onConfirm={() => resolve()} onCancel={() => reject}>{msg}</AcConfirm>,
+      <AcConfirm onConfirm={handleConfirm} onCancel={handleCancel}>{msg}</AcConfirm>,
       element
     )
   })

@@ -1,16 +1,21 @@
 import React, { useState, ReactNode } from 'react'
 import './recruit.less'
 import { useHistory } from 'react-router'
-import { success } from '@/components/AcMessage'
-import { confirm } from '@/components/AcConfirm'
-import AcButton from '@/components/AcButton'
-import MemberGet from '@/components/MemberGet'
+import { success } from '@/components/AcMessage' // 消息
+import { confirm } from '@/components/AcConfirm' // 确认框
+import AcButton from '@/components/AcButton' // 按钮
+import MemberGet from '@/components/MemberGet' // 干员入队
 
+interface RecruitItem {
+  num: number, // 格子坐标
+  status: 'ready' | 'finished' | 'searching', // 格子状态
+  finished: boolean // 格子是否完成
+}
 
 export default function () {
   let history = useHistory()
   let [ visible, setVisible ] = useState(false)
-  let [data, setData] = useState([
+  let [data, setData] = useState<Array<RecruitItem>>([
     {
       num: 1,
       status: 'ready',
@@ -33,6 +38,9 @@ export default function () {
     }
   ])
 
+  /**
+   * 招募结束 -> 干员加入
+   */
   const handleConfirm = () => {
     setVisible(true)
     // info('获得能天使')
@@ -53,21 +61,28 @@ export default function () {
   
   /**
    * 立刻招募结束
-   * @param { Item } item 需要立刻结束的对象
+   * @param { Item } item 选中格子
    */
-  const finisheNow = (item: { status: string }) => {
+  const finisheNow = (item: RecruitItem) => {
     data.forEach(obj => {
       if (obj === item) {
-        obj.status = 'fnished'
+        obj.status = 'finished'
       }
     })
 
     setData(data)
   }
 
-  const handleCancel = () => {
-    confirm('确定吗')
-    success('已经取消')
+  /**
+   * 停止招募
+   * @param {RecruitItem} 选中格子 
+   */
+  const handleCancel = (item: RecruitItem) => {
+    confirm('确定吗要取消吗？').then(() => {
+      item.status = 'ready'
+      item.finished = false
+      success('已经取消')
+    }, () => {})
   }
   
   return (
@@ -105,7 +120,7 @@ export default function () {
                     </div>
                   </main>
                   <footer>
-                    <AcButton size="large" onClick={() => handleCancel() }>停止招募</AcButton>
+                    <AcButton size="large" onClick={() => handleCancel(item) }>停止招募</AcButton>
                     <AcButton size="large" onClick={() => finisheNow(item) }>立即招募</AcButton>
                   </footer>
                 </div>

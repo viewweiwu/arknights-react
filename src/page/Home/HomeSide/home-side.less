@@ -89,7 +89,6 @@
   opacity: .9;
   background-color: #fff;
   position: relative;
-  overflow: hidden;
   transition: 200ms;
   cursor: pointer;
 
@@ -200,6 +199,17 @@
     .item-icon {
       width: 100px;
       background-position-x: -690px;
+    }
+
+    &::before {
+      content: '';
+      top: 0;
+      left: 50%;
+      width: 60%;
+      height: 6px;
+      background-color: @red;
+      position: absolute;
+      transform: translate(-50%, -3px);
     }
   }
 
@@ -407,6 +417,17 @@
 
   &.row-first {
     transform: translateX(80px);
+
+    &::after {
+      content: '';
+      left: 40%;
+      bottom: 0;
+      width: 60%;
+      height: 6px;
+      background-color: @red;
+      position: absolute;
+      transform: translate(0, 3px);
+    }
   }
 
   &.row-sub {

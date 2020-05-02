@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import './member-get.less';
-import { getRandomFloor } from '@/utils';
-import { useInterval } from '@/utils/useTimeout';
-import Dust from '../Dust';
-import MemberGetBreak from './MemberGetBreak';
-const garish = require('./poly.png');
+import React, { useState } from 'react'
+import './member-get.less'
+import { getRandomFloor } from '@/utils'
+import { useInterval } from 'react-use'
+import Dust from '../Dust'
+import MemberGetBreak from './MemberGetBreak'
+const garish = require('./poly.png')
 
-const cg = 'http://ak.mooncell.wiki/images/1/13/%E7%AB%8B%E7%BB%98_%E8%83%BD%E5%A4%A9%E4%BD%BF_skin1.png';
-const logo = 'http://ak.mooncell.wiki/images/f/f3/Skin_logo_%E7%94%9F%E5%91%BD%E4%B9%8B%E5%9C%B0.png';
-const type = 'http://ak.mooncell.wiki/images/d/d1/%E5%9B%BE%E6%A0%87_%E8%81%8C%E4%B8%9A_%E7%8B%99%E5%87%BB_%E5%A4%A7%E5%9B%BE.png';
+const cg = 'http://ak.mooncell.wiki/images/1/13/%E7%AB%8B%E7%BB%98_%E8%83%BD%E5%A4%A9%E4%BD%BF_skin1.png'
+const logo = 'http://ak.mooncell.wiki/images/f/f3/Skin_logo_%E7%94%9F%E5%91%BD%E4%B9%8B%E5%9C%B0.png'
+const type = 'http://ak.mooncell.wiki/images/d/d1/%E5%9B%BE%E6%A0%87_%E8%81%8C%E4%B8%9A_%E7%8B%99%E5%87%BB_%E5%A4%A7%E5%9B%BE.png'
 
 interface ArrowItem {
-  id: number;
-  top: number;
-  left: number;
-  size: number;
-  color: string;
-  direction: string;
-  moved: boolean;
-  moveType: string;
-  moveDirection: string;
+  id: number,
+  top: number,
+  left: number,
+  size: number,
+  color: string,
+  direction: string,
+  moved: boolean,
+  moveType: string,
+  moveDirection: string
 }
 
 /**
@@ -27,12 +27,12 @@ interface ArrowItem {
  * @return {void}
  */
 let createArrowItem = () => {
-  let w = window.innerWidth;
-  let h = window.innerHeight;
-  const color = ['pink', 'white'][getRandomFloor(0, 1)];
-  const moveType = ['blink', 'move'][getRandomFloor(0, 1)];
-  const moveDirection = ['left-to-right', 'right-to-left'][getRandomFloor(0, 1)];
-  const left = moveType === 'blink' ? getRandomFloor(0, w) : moveDirection === 'left-to-right' ? getRandomFloor(0, w * 0.2) : getRandomFloor(w * 0.8, w);
+  let w = window.innerWidth
+  let h = window.innerHeight
+  const color = ['pink', 'white'][getRandomFloor(0, 1)]
+  const moveType = ['blink', 'move'][getRandomFloor(0, 1)]
+  const moveDirection = ['left-to-right', 'right-to-left'][getRandomFloor(0, 1)]
+  const left = moveType === 'blink' ? getRandomFloor(0, w) : moveDirection === 'left-to-right' ? getRandomFloor(0, w * 0.2) : getRandomFloor(w * 0.8, w)
 
   return {
     id: Date.now() + Math.random(),
@@ -44,21 +44,21 @@ let createArrowItem = () => {
     color,
     direction: ['up', 'down'][getRandomFloor(0, 1)],
     moved: false
-  };
-};
+  }
+}
 
 // 箭头元素上限
-let max = 50;
+let max = 50
 
 const createDefaultArrow = (count: number) => {
-  let newList: Array<ArrowItem> = [];
+  let newList: Array<ArrowItem> = []
 
   for (let i = 0; i < count; i++) {
-    newList.push(createArrowItem());
+    newList.push(createArrowItem())
   }
 
-  return newList;
-};
+  return newList
+}
 
 /**
  * @description: 清空已经完成动画的元素
@@ -67,35 +67,35 @@ const createDefaultArrow = (count: number) => {
  * @return {Array<ArrowItem>} newList
  */
 const clearMovedList = (list: Array<ArrowItem>, setList: (newList: Array<ArrowItem>) => void) => {
-  let newList: Array<ArrowItem> = [];
+  let newList: Array<ArrowItem> = []
   list.forEach((item) => {
     if (!item.moved) {
-      newList.push(item);
+      newList.push(item)
     }
-  });
-  setList(newList);
-  return newList;
-};
+  })
+  setList(newList)
+  return newList
+}
 
 interface MemberGetProps {
-  visible: boolean;
-  setVisible(visible: boolean): void;
+  visible: boolean
+  setVisible(visible: boolean): void
 }
 
 export default function (props: MemberGetProps) {
-  let [list, setList] = useState<Array<ArrowItem>>(createDefaultArrow(5));
+  let [list, setList] = useState<Array<ArrowItem>>(createDefaultArrow(5))
 
   useInterval(() => {
     // 清空已经完成动画的元素
-    list = clearMovedList(list, setList);
+    list = clearMovedList(list, setList)
     if (list.length < max) {
-      let newItem = createArrowItem();
-      setList([...list, newItem]);
+      let newItem = createArrowItem()
+      setList([...list, newItem])
       setTimeout(() => {
-        newItem.moved = true;
-      }, 4000);
+        newItem.moved = true
+      }, 4000)
     }
-  }, 200);
+  }, 200)
 
   return props.visible ? (
     <div className='member-get' onClick={() => props.setVisible(false)}>
@@ -111,7 +111,7 @@ export default function (props: MemberGetProps) {
               <div className='arrow-item-light'></div>
               <i className={`iconfont icon-fill-${item.direction}`} style={{ fontSize: item.size }}></i>
             </div>
-          );
+          )
         })}
       </div>
       <img className='member-garish' src={garish} alt='' />
@@ -143,5 +143,5 @@ export default function (props: MemberGetProps) {
       </div>
       <MemberGetBreak />
     </div>
-  ) : null;
+  ) : null
 }
