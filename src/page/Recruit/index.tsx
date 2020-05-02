@@ -7,7 +7,7 @@ import MemberGet from '@/components/MemberGet'
 
 export default function () {
   let history = useHistory()
-  let [ visible, setVisible ] = useState(false)
+  let [ visible, setVisible ] = useState(true)
   let [data, setData] = useState([
     {
       num: 1,
@@ -33,7 +33,7 @@ export default function () {
 
   const handleConfirm = () => {
     setVisible(true)
-    info('获得能天使')
+    // info('获得能天使')
     // warning('警告！！！', 2000)
     // error('错误！！！', 3000)
     // success('成功！！！', 4000)

@@ -16,7 +16,7 @@ interface GridItem {
 
 // 道具图表
 const images = [
-  'http://ak.mooncell.wiki/images/thumb/e/e6/%E9%81%93%E5%85%B7_%E8%BD%BB%E9%94%B0%E7%9F%BF.png/100px-%E9%81%93%E5%85%B7_%E8%BD%BB%E9%94%B0%E7%9F%BF.png',
+  'http://ak.mooncell.wiki/images/thumb/7/70/%E9%81%93%E5%85%B7_%E5%BC%82%E9%93%81%E5%9D%97.png/100px-%E9%81%93%E5%85%B7_%E5%BC%82%E9%93%81%E5%9D%97.png',
   'http://ak.mooncell.wiki/images/thumb/d/d0/%E9%81%93%E5%85%B7_%E9%A3%9F%E5%A0%82%E6%B1%A4%E7%82%B9%E5%88%B8.png/100px-%E9%81%93%E5%85%B7_%E9%A3%9F%E5%A0%82%E6%B1%A4%E7%82%B9%E5%88%B8.png',
   'http://ak.mooncell.wiki/images/thumb/a/a5/%E9%81%93%E5%85%B7_%E5%88%9D%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95.png/100px-%E9%81%93%E5%85%B7_%E5%88%9D%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95.png',
   'http://ak.mooncell.wiki/images/thumb/4/41/%E9%81%93%E5%85%B7_%E4%B8%AD%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95.png/100px-%E9%81%93%E5%85%B7_%E4%B8%AD%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95.png'
@@ -105,7 +105,7 @@ export default function (props: SignProps) {
                   <li className={`sign-grid-item ${item.checked && 'checked'} ${item.active && 'active'}`} key={item.index}>
                     <div className="sign-grid-number">{item.index}</div>
                     { item.checked && <i className="iconfont icon-checked"></i> }
-                    <img className="sign-grid-image" src={item.img} height="60" alt=""/>
+                    <img className="sign-grid-image" src={item.img} height="60" alt="" draggable="false" />
                     <span className="sign-grid-count">99</span>
                   </li>
                 )

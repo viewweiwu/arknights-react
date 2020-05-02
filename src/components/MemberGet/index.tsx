@@ -12,6 +12,7 @@ import { getRandomFloor } from '@/utils'
 import { useInterval } from '@/utils/useTimeout'
 import Dust from '../Dust'
 import MemberGetBreak from './MemberGetBreak'
+import pikaccyuu from './pikacyuu.svg'
 const garish = require('./poly.png')
 
 const cg = 'http://ak.mooncell.wiki/images/1/13/%E7%AB%8B%E7%BB%98_%E8%83%BD%E5%A4%A9%E4%BD%BF_skin1.png'

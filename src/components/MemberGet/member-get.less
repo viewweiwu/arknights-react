@@ -8,6 +8,10 @@
   z-index: 10;
   overflow: hidden;
   background-color: #1e1e1e;
+  background-image: url(./bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center bottom;
   position: fixed;
   .flex();
 
@@ -151,7 +155,7 @@
     100% {
       opacity: 0;
       color: fadeout(@yellow, 20%);
-      transform: translateX(-500px);
+      transform: translateX(70vh);
     }
   }
 
@@ -273,6 +277,7 @@
 
   .member-garish {
     opacity: .5;
+    transform: scale(2) translateX(20%);
   }
 
   .member-info {
