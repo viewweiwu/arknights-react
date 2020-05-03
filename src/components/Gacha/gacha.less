@@ -1,0 +1,511 @@
+@import "~@/assets/less/variable.less";
+
+// ---------------------- 抽卡之前
+.gacha-preview {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: @black;
+  background-color: #1e1e1e;
+  background-image: url(./images/bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center bottom;
+  position: fixed;
+  overflow: hidden;
+  .flex();
+  
+  .arrow-wrap,
+  .arrow-wrap-vertical {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .arrow-item {
+    line-height: 1;
+    font-size: 100px;
+    border-radius: 50%;
+    position: absolute;
+    .flex();
+
+    .iconfont {
+      opacity: 0;
+      z-index: 1;
+      position: relative;
+      animation: scaleMove 4s;
+
+      &::after {
+        content: '';
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        opacity: .8;
+        box-shadow: 0 0 1em .5em #fff;
+        background-color: @yellow;
+        position: absolute;
+      }
+    }
+
+    &.pink {
+      .iconfont {
+        filter: blur(2px);
+        &::after {
+          box-shadow: 0 0 1em .5em @red;
+        }
+      }
+
+      .arrow-item-light {
+        &::before {
+          content: '';
+          left: 10%;
+          top: -300%;
+          width: 80%;
+          height: 700%;
+          opacity: .3;
+          background-image: linear-gradient(to bottom, transparent, lighten(@red, 20%), transparent);
+          position: absolute;
+        }
+      }
+    }
+
+    &.move {
+      .iconfont {
+        animation-name: moveVertical;
+      }
+
+      .arrow-item-light {
+        display: none;
+      }
+
+      &.left-to-right {
+        .iconfont {
+          animation-name: moveVerticalToRight;
+        }
+      }
+    }
+  }
+
+
+  .arrow-item-light {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
+    opacity: 0;
+    position: absolute;
+    animation: light 3s;
+
+    &::before {
+      content: '';
+      left: 10%;
+      top: -300%;
+      width: 80%;
+      height: 700%;
+      opacity: .3;
+      background-image: linear-gradient(to bottom, transparent, lighten(@yellow, 20%), transparent);
+      position: absolute;
+    }
+  }
+
+  @keyframes moveVertical {
+    0% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      color: fadeout(@yellow, 20%);
+      transform: translateX(70vh);
+    }
+  }
+
+  @keyframes moveVerticalToRight {
+    0% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      color: fadeout(@yellow, 20%);
+      transform: translateX(500px);
+    }
+  }
+
+  @keyframes light {
+    0% {
+      opacity: 0;
+    }
+    30% {
+      opacity: .6;
+    }
+    100% {
+      opacity: .1;
+    }
+  }
+
+  @keyframes scaleMove {
+    0%, 70% {
+      opacity: 1;
+      color: #fff;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      color: fadeout(@yellow, 20%);
+      transform: scale(.7);
+    }
+  }
+}
+
+.gacha-preview-pack {
+  transform: rotateX(2deg) rotateY(1deg) rotateZ(720deg);
+  position: relative;
+  animation: PackShow 3s forwards;
+}
+
+@keyframes PackShow {
+  0% {
+    top: 100%;
+    opacity: 0;
+    transform: rotateZ(0deg) rotateX(90deg) scale(.5);
+  }
+  35% {
+    top: 0%;
+    opacity: 1;
+    transform: rotateZ(720deg) rotateX(0deg) scale(.6);
+  }
+  65% {
+    transform: scale(1);
+  }
+  80% {
+    transform: rotateZ(-30deg) translateX(-50%);
+  }
+  100% {
+    transform: translateX(-500%) rotateZ(-30deg);
+  }
+}
+
+.gacha-preview-data {
+  opacity: 0;
+  position: absolute;
+  animation: DataShow 3s 2.1s
+}
+
+@keyframes DataShow {
+  0% {
+    opacity: 1;
+    transform: rotateZ(0deg) scale(.9);
+  }
+  10% {
+    transform: rotateZ(10deg) translateX(10%) scale(1);
+  }
+  30% {
+    transform: rotateZ(10deg) translateX(10%) scale(1);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+// ---------------------- 抽卡结束
+.gacha-shadow {
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  .flex();
+}
+
+.gacha-preview-shadow {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  z-index: 10;
+  position: absolute;
+  animation: shadowShow 3s;
+}
+
+@keyframes shadowShow {
+  0% {
+    opacity: 0;
+    background-color: #000;
+    box-shadow: inset 0 0 500px 100vh #1e1e1e;
+  }
+  20% {
+    opacity: 1;
+    background-color: transparent;
+  }
+  50% {
+    box-shadow: inset 0 0 500px 100vh #1e1e1e;
+  }
+  100% {
+    box-shadow: inset 0 0 0 0 #1e1e1e;
+  }
+}
+
+.gacha-shadow-cg {
+  bottom: 0;
+  left: 50%;
+  max-height: 80vh;
+  opacity: 0;
+  position: absolute;
+  animation: shadowCgShow 2s;
+}
+
+@keyframes shadowCgShow {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.gacha-shadow-light {
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  position: absolute;
+  .flex();
+  transform: translate(-50% -50%);
+
+  .light-item {
+    width: 0px;
+    height: 0px;
+    background-color: #fff;
+    filter: blur(50px);
+    mix-blend-mode: color-dodge;
+    border-radius: 50%;
+    box-shadow: 0 0 300px @red;
+    position: absolute;
+    animation: shadowLightShow 2s 1s;
+
+    &:nth-child(2) {
+      transform: translateX(-100px) translateY(300px);
+    }
+    
+    &:nth-child(3) {
+      transform: translateX(100px) translateY(300px);
+    }
+  }
+
+  @keyframes shadowLightShow {
+    0% {
+      width: 300px;
+      height: 300px;
+    }
+    70% {
+      width: 130vw;
+      height: 130vw;
+    }
+    100% {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.gacha-stars {
+  top: 60%;
+  left: 50%;
+  font-size: 70px;
+  filter: drop-shadow(2px 4px 6px black);
+  z-index: 2;
+  letter-spacing: -.1em;
+  position: absolute;
+  animation: starSlowMove 10s forwards;
+
+  .iconfont {
+    opacity: 0;
+    animation: starShow 1s forwards;
+
+    &:nth-child(1) {
+      animation-delay: .1s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: .2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: .3s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: .4s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: .5s;
+    }
+
+    &:nth-child(6) {
+      animation-delay: .6s;
+    }
+  }
+}
+
+.gacha-detail {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+  position: fixed;
+  .flex();
+
+  .icon-large {
+    left: 50%;
+    top: 60%;
+    // opacity: .3;
+    // filter: blur(10px);
+    font-size: 1000px;
+    position: absolute;
+    transform: translate(-60%, 0);
+
+    .iconfont {
+      filter: blur(10px);
+      opacity: .3;
+    }
+
+    &::after {
+      content: '';
+      left: 50%;
+      bottom: 70%;
+      border-radius: 50%;
+      width: 1px;
+      height: 1px;
+      opacity: .4;
+      box-shadow: 0 0 300px 300px #fff;
+      z-index: -1;
+      position: absolute;
+      transform: translateX(-50%);
+    }
+  }
+
+  .gacha-cg {
+    left: 55%;
+    bottom: 50%;
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%) translateY(70%);
+  }
+
+  .gacha-logo {
+    top: 40%;
+    left: 40%;
+    filter: invert(100%);
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  @keyframes starShow {
+    0% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes starSlowMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(10%);
+    }
+  }
+
+  .gacha-garish {
+    opacity: .5;
+    transform: scale(2) translateX(20%);
+  }
+
+  .gacha-info {
+    top: 70%;
+    left: 50%;
+    text-shadow: 2px 2px 8px @black;
+    font-family: noto sans sc, sans-serif;
+    font-weight: 800;
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    animation: starSlowMove 15s forwards;
+
+    .info-type {
+      text-align: right;
+      margin-right: 4px;
+      color: #000;
+    }
+
+    .info-type-cn {
+      font-size: 40px;
+    }
+    
+    .info-name {
+      margin-left: 4px;
+      font-size: 30px;
+    }
+
+    .info-name-cn {
+      font-size: 60px;
+    }
+  }
+
+  .gacha-voice {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 2;
+    background-image: linear-gradient(to top, #1e1e1e 60%, transparent);
+    position: absolute;
+    .flex();
+
+    p {
+      text-shadow: 0 0 4px @black;
+      font-size: 20px;
+      line-height: 1.5;
+      width: 40%;
+      letter-spacing: .05em;
+    }
+  }
+}
+
+.gacha-break {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+}

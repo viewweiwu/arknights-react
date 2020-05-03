@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import './home-sign.less'
 import { getRandomFloor } from '@/utils'
 import dayjs from 'dayjs'
+import { playSound } from '@/components/AcAudio'
 
 interface SignProps {
   onClose(): void
@@ -67,6 +68,7 @@ export default function (props: SignProps) {
    * 今日签到完毕
    */
   const handleSign = (): void => {
+    playSound('confirm')
     props.onClose()
     localStorage.setItem('SIGNED_DATE', dayjs(new Date()).format('YYYY-MM-DD'))
   }
@@ -74,7 +76,7 @@ export default function (props: SignProps) {
   return (
     <div className="sign">
       <div className="sign-content">
-        <i className="sign-close iconfont icon-close" onClick={() => handleSign()}></i>
+        <i className="sign-close iconfont icon-close" onClick={handleSign}></i>
         <div
           className="sign-grid"
           onMouseMove={(e: React.MouseEvent) => handleMouseMove(e)}

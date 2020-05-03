@@ -61,7 +61,7 @@ class Break {
   }
 }
 
-export default function () {
+export default function GachaBreak() {
   const $canvas = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function () {
 
       setTimeout(() => {
         b.shake(width * .25, height * .1, width * .5, height * .8, 10)
-      }, 3000)
+      }, 1000)
 
       setTimeout(() => {
         b.shake(width * .6, height * .6, width * .1, width * .1, 10)
@@ -88,6 +88,6 @@ export default function () {
   }, [])
 
   return (
-    <canvas ref={$canvas} className="member-get-break" />
+    <canvas ref={$canvas} className="gacha-break" />
   )
 }
