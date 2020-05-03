@@ -35,7 +35,7 @@ const handleEdit = () => {
 }
 
 export default function Recruit () {
-  let [ visible, setVisible ] = useState<boolean>(true)
+  let [ visible, setVisible ] = useState<boolean>(false)
   let [ data, setData ] = useState<Array<RecruitItem>>([
     {
       num: 1,

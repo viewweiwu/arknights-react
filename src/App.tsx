@@ -5,6 +5,8 @@ import {
   Route,
   RouteComponentProps
 } from "react-router-dom";
+import { useMount } from 'react-use'
+import { info } from './components/AcMessage'
 
 const routes = [
   {
@@ -41,9 +43,27 @@ const routes = [
   }
 ]
 
+const isMobile = () => {
+  let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+  return flag;
+ }
+
 export default function () {
+  useMount(() => {
+    if (isMobile()) {
+      let s = window.innerWidth / 1920
+      document.body.style.zoom = s + ''
+      let media = document.createElement('link')
+      media.rel = 'stylesheet'
+      media.href = '/media.css'
+      document.body.appendChild(media)
+    }
+  })
   return (
     <Router>
+      <div className="tip">
+        <p>移动端的同学，请先<mark>旋转屏幕</mark>，再<mark>刷新</mark>，来继续阅读。</p>
+      </div>
       <Switch>
         {
           routes.map(route => {

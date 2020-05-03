@@ -1,0 +1,174 @@
+body {
+  font-family: 'Microsoft Yahei', 'Bender';
+}
+
+.tip {
+  display: block;
+}
+
+.ac-toolbar-item {
+  width: 150px !important;
+}
+
+.ac-button {
+  height: 40px !important;
+  font-size: 12px !important;
+}
+
+.home-side-assets,
+.home-side-time {
+  font-size: 12px;
+}
+
+.home .content-right,
+.home .item-title {
+  font-size: 24px !important;
+}
+
+.home .item-multi-title {
+  font-size: 16px !important;
+}
+
+.home .primary {
+  font-size: 40px !important;
+}
+
+.home .level-num {
+  font-size: 24px;
+}
+
+.home .level-text {
+  font-size: 12px !important;
+}
+
+.home .home-side-item {
+  font-size: 20px !important;
+}
+
+.home .item-tag {
+  font-size: 12px !important;
+}
+
+.home .sub {
+  margin-top: 4px !important;
+  font-size: 16px !important;
+}
+
+.chapter .item-title-main {
+  font-size: 16px !important;
+}
+
+.recruit {
+  padding-top: 60px;
+}
+
+.recruit .item-add {
+  font-size: 20px;
+}
+
+.recruit .item-empty p {
+  font-size: 12px;
+}
+
+.recruit .item-searching main {
+  padding-top: 40px;
+}
+
+.recruit .item-num {
+  font-size: 18px;
+}
+
+.recruit .recruit-title {
+  display: none;
+}
+
+.recruit .open-list {
+  height: 100% !important;
+}
+
+.recruit-editor {
+  font-size: 12px;
+}
+
+.recruit-editor .section-left {
+  width: 900px;
+}
+
+.recruit-editor .ac-picker-label {
+  font-size: 34px;
+}
+
+.recruit-editor .row-middle li {
+  font-size: 12px;
+}
+
+.recruit-editor .row-first .section-right header {
+  font-size: 12px;
+}
+
+.recruit-editor-content .row-middle .ac-button {
+  width: unset;
+  border-radius: 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.recruit .ac-button {
+  background-image: unset;
+}
+
+.gacha-info {
+  top: 30% !important;
+  left: unset !important;
+  right: 10%;
+}
+
+.gacha-voice p {
+  left: 0;
+  line-height: 1em !important;
+  font-size: 12px !important;
+}
+
+.gacha-stars .iconfont {
+  font-size: 30px;
+}
+
+.ac-confirm-msg {
+  font-size: 12px;
+}
+
+.ac-confirm-content footer .btn .iconfont {
+  font-size: 16px;
+}
+
+.sign-header .iconfont {
+  font-size: 20px;
+}
+
+.sign-header mark {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.sign-grid-item .iconfont {
+  font-size: 12px;
+}
+
+.sign-grid-number {
+  font-size: 20px;
+}
+
+.sign-confirm {
+  font-size: 12px;
+}
+
+.sign-aside-name {
+  font-size: 12px;
+  text-shadow: 0 0 4px #e5b742;
+}
+
+.sign-close {
+  border-radius: unset;
+  color: #333;
+  background-color: unset;
+}
