@@ -4,6 +4,7 @@ import Parallax from 'parallax-js' // 鼠标视差特效
 import { confirm } from '@/components/AcConfirm'
 import './home-banner.less'
 import { info } from '@/components/AcMessage'
+import { playSound } from '@/components/AcAudio'
 
 interface HomeBannerProps {
   onSign(): void
@@ -24,10 +25,12 @@ export default function (props: HomeBannerProps) {
    * 签到
    */
   const handleSign = () => {
+    playSound('click')
     props.onSign()
   }
 
   const handleGithub = () => {
+    playSound('click')
     const confirmMsg = (
       <div className="(oﾟvﾟ)ノ">
         <p>现在要跳转到本项目的 <i className="iconfont icon-github"></i> github 源码!</p>

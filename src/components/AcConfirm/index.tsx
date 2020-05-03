@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import ReactDOM from 'react-dom'
 import './ac-confirm.less'
+import { playSound } from '../AcAudio'
 
 interface AcConfirmProps {
   children?: ReactNode,
@@ -37,6 +38,7 @@ export const confirm = (msg: string | ReactNode) => {
     const handleCancel = () => {
       reject()
       remove()
+      playSound('back')
     }
 
     /**
@@ -45,6 +47,7 @@ export const confirm = (msg: string | ReactNode) => {
     const handleConfirm = () => {
       resolve()
       remove()
+      playSound('confirm')
     }
 
     /**

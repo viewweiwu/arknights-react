@@ -152,10 +152,10 @@ export default function RecruitEditor (props: RecruitEditorProps) {
             </ul>
           </div>
           <div className="section-right">
-            <AcButton type="blue" onClick={handleConfirm}>
+            <AcButton type="blue" onClick={handleConfirm} sound="confirm">
               <i className="iconfont icon-check"></i>
             </AcButton>
-            <AcButton onClick={handleCancel}>
+            <AcButton onClick={handleCancel} sound="back">
               <i className="iconfont icon-close"></i>
             </AcButton>
           </div>

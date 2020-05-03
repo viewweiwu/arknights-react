@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './ac-picker.less'
 import { useInterval } from 'react-use'
+import { playSound } from '../AcAudio'
 
 export interface AcPickerOption {
   label: string | number,
@@ -29,6 +30,24 @@ export default function AcPicker (props: AcPickerProps) {
     if (index !== 0) {
       index -= 1
     }
+
+    playSound('tab')
+
+    onChange && onChange(options[index].value)
+  }
+  
+  /**
+   * 移动到下一个选项
+   */
+  const handleDown = (): void => {
+    let { value, options, onChange } = props
+    let index = options.findIndex((option: AcPickerOption) => option.value === value)
+    
+    if (index < options.length - 2) {
+      index += 1
+    }
+    
+    playSound('tab')
 
     onChange && onChange(options[index].value)
   }
@@ -76,16 +95,6 @@ export default function AcPicker (props: AcPickerProps) {
   }, downRunning ? 100 : null)
 
 
-  const handleDown = (): void => {
-    let { value, options, onChange } = props
-    let index = options.findIndex((option: AcPickerOption) => option.value === value)
-    
-    if (index < options.length - 2) {
-      index += 1
-    }
-
-    onChange && onChange(options[index].value)
-  }
 
   const getLabel = (): string | number | undefined => {
     let { value, options } = props

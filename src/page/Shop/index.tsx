@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom'
 
 import './shop.less'
+import AcToolbar from '@/components/AcToolbar'
+import { playSound } from '@/components/AcAudio'
 
 interface TabItem {
   id: string,
@@ -74,6 +76,7 @@ export default function () {
   const history = useHistory()
   
   const changeTab = (tab: TabItem) => {
+    playSound('tab')
     history.replace(tab.path)
     setActive(tab.id)
   }
@@ -81,11 +84,7 @@ export default function () {
   return (
     <div className="shop">
       <Redirect from="/shop" to="/shop/featured" />
-      <div className="tool">
-        <button className="tool-item btn" onClick={() => history.goBack()}>
-          <i className="iconfont icon-back"></i>
-        </button>
-      </div>
+      <AcToolbar />
       <header className="shop-header">
         <div className="shop-tab">
           {

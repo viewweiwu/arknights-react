@@ -1,5 +1,6 @@
 import React from 'react'
 import './game-item-detail.less'
+import { playSound } from '@/components/AcAudio'
 
 interface GameItemDetail {
   item: GameItem,
@@ -8,9 +9,14 @@ interface GameItemDetail {
 
 export default function (props: GameItemDetail) {
   let item = props.item
+
+  const handleCancel = () => {
+    playSound('confirm')
+    props.onClose && props.onClose()
+  }
   
   return (
-    <div className="game-item-detail" onClick={() => props.onClose && props.onClose()}>
+    <div className="game-item-detail" onClick={handleCancel}>
       <div className="detail-content">
         <header>
           <span className="detail-name">{item.name}</span>

@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router'
 import Parallax from 'parallax-js' // 鼠标视差特效
 import dayjs from 'dayjs' // 日期转换
 import './home-side.less'
+import { playSound } from '@/components/AcAudio'
 
 let timer: NodeJS.Timeout
 /**
@@ -29,6 +30,7 @@ export default function (props: RouteComponentProps) {
   function goPage (path: string): void {
     clearTimeout(timer)
     props.history.push(path)
+    playSound('click')
   }
 
   useEffect(() => {

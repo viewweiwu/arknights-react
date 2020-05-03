@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router'
 import GameItemDetail from './GameItemDetail' // 道具详情展示
 import gameItemList from '@/assets/json/game-item.json' // 道具数据源
 import './game-item.less'
 import AcScroll from '@/components/AcScroll'
+import AcToolbar from '@/components/AcToolbar'
+import { playSound } from '@/components/AcAudio'
 
 export default function () {
   // 选中的道具
@@ -22,8 +23,6 @@ export default function () {
   // 是否展示道具详情
   let [visible, setVisible] = useState<boolean>(false)
 
-  let history = useHistory()
-
   /**
    * 是否展示详情
    * @param {GameItem} item 道具信息
@@ -31,16 +30,13 @@ export default function () {
   const showDetail = (item: GameItem) => {
     setSelectedItem(item)
     setVisible(true)
+    playSound('click')
   }
 
   return (
     <div className="game-item">
       <div className="shadow-page"></div>
-      <div className="tool">
-        <button className="tool-item btn" onClick={() => history.goBack()}>
-          <i className="iconfont icon-back"></i>
-        </button>
-      </div>
+      <AcToolbar />
       <AcScroll className="shadow-scroll">
         <div className="game-item-content">
           <div className="game-item-list">

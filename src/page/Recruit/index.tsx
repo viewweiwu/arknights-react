@@ -1,12 +1,13 @@
 import React, { useState, ReactNode } from 'react'
 import './recruit.less'
-import { useHistory } from 'react-router'
 import { success } from '@/components/AcMessage' // 消息
 import { confirm } from '@/components/AcConfirm' // 确认框
 import AcButton from '@/components/AcButton' // 按钮
 import MemberGet from '@/components/MemberGet' // 干员入队
 import RecruitEditor from './RecruitEditor'
 import ReactDOM from 'react-dom'
+import AcToolbar from '@/components/AcToolbar'
+import { playSound } from '@/components/AcAudio'
 
 interface RecruitItem {
   num: number, // 格子坐标
@@ -18,6 +19,7 @@ interface RecruitItem {
  * 编辑招募规则
  */
 const handleEdit = () => {
+  playSound('click')
   const element = document.createElement('div')
   document.body.appendChild(element)
 
@@ -33,7 +35,6 @@ const handleEdit = () => {
 }
 
 export default function Recruit () {
-  let history = useHistory()
   let [ visible, setVisible ] = useState(false)
   let [ data, setData ] = useState<Array<RecruitItem>>([
     {
@@ -93,11 +94,7 @@ export default function Recruit () {
   
   return (
     <div className="recruit">
-      <div className="tool">
-        <button className="tool-item btn" onClick={() => history.goBack()}>
-          <i className="iconfont icon-back"></i>
-        </button>
-      </div>
+      <AcToolbar />
       <div className="recruit-header">
         <h2 className="recruit-title">公开招募</h2>
       </div>

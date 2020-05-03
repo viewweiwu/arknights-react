@@ -1,8 +1,8 @@
 import React from 'react'
 import './chapter.less'
-import { useHistory } from 'react-router'
 import Dust from '@/components/Dust'
 import AcScroll from '@/components/AcScroll'
+import AcToolbar from '@/components/AcToolbar'
 
 // 章节数据
 const chapterList = [
@@ -52,15 +52,9 @@ const chapterList = [
 
 
 export default function () {
-  let history = useHistory()
-  
   return (
     <div className="chapter">
-      <div className="tool">
-        <button className="tool-item btn" onClick={() => history.goBack()}>
-          <i className="iconfont icon-back"></i>
-        </button>
-      </div>
+      <AcToolbar />
       <Dust />
       <div className="shadow-page"></div>
       <AcScroll className="shadow-scroll">
