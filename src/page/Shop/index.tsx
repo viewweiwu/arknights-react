@@ -10,6 +10,7 @@ import {
 import './shop.less'
 import AcToolbar from '@/components/AcToolbar'
 import { playSound } from '@/components/AcAudio'
+import Live from '../Live'
 
 interface TabItem {
   id: string,
@@ -98,6 +99,7 @@ export default function () {
         </div>
       </header>
       <article className="shop-body">
+        <Live className="shop-cg" />
         <Switch>
           {
             tabs.map(route => {

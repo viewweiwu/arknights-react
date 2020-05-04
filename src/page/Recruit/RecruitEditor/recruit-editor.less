@@ -82,6 +82,10 @@
         opacity: .4;
         pointer-events: none;
       }
+      
+      &.active {
+        background-color: darken(@blue, 10%);
+      }
     }
 
     .section-right {
@@ -174,7 +178,7 @@
     color: #fff;
     border-radius: 4px;
     margin: 4px 1%;
-    background-color: @blue;
+    background-color: darken(@blue, 10%);
     text-align: center;
     cursor: pointer;
   }

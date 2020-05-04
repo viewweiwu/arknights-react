@@ -61,8 +61,8 @@ export default function () {
   })
   return (
     <Router>
-      <div className="tip">
-        <p>移动端的同学，请先<mark>旋转屏幕</mark>，再<mark>刷新</mark>，来继续阅读。</p>
+      <div className="media-tip">
+        <p>移动端的同学，请先<mark>旋转屏幕</mark>，再<mark>刷新</mark>，来访问此站。</p>
       </div>
       <Switch>
         {

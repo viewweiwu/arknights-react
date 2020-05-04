@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './recruit-editor.less'
 import AcPicker, { AcPickerOption } from '@/components/AcPicker'
 import AcButton from '@/components/AcButton'
+import { playSound } from '@/components/AcAudio'
 
 interface RecruitEditorProps {
   onClose?(): void
@@ -12,10 +13,10 @@ interface RecruitEditorProps {
  * @param {Number} min 最小选项
  * @param {Number} max 最大选项
  */
-const createOptions = (min: number, max: number) => {
+const createOptions = (min: number, max: number, step: number = 1) => {
   let options: Array<AcPickerOption> = []
   
-  for (let i = max; i >= min - 1; i--) {
+  for (let i = max; i >= min - step; i -= step) {
     // 小于 10 补 0
     const label = i < 10 ? '0' + i : i
     options.push({
@@ -31,7 +32,7 @@ const createOptions = (min: number, max: number) => {
 const HourOptions: Array<AcPickerOption> = createOptions(1, 9)
 
 // 分钟选项
-const MinuteOptions: Array<AcPickerOption> = createOptions(0, 59)
+const MinuteOptions: Array<AcPickerOption> = createOptions(0, 50, 10)
 
 // 秒钟选项
 const SecondOptions: Array<AcPickerOption> = createOptions(0, 0)
@@ -54,8 +55,9 @@ const TagOptions: Array<AcPickerOption> = [
 ]
 
 export default function RecruitEditor (props: RecruitEditorProps) {
-  const [ hour, setHour ] = useState<number | string | boolean>(1) 
-  const [ minute, setMinute ] = useState<number | string | boolean>(0) 
+  const [ hour, setHour ] = useState<number | string | boolean>(1)
+  const [ minute, setMinute ] = useState<number | string | boolean>(0)
+  const [ activeTag, setActiveTag ] = useState<Array<string | number | boolean>>([])
 
   /**
    * 监听小时改变
@@ -79,6 +81,17 @@ export default function RecruitEditor (props: RecruitEditorProps) {
 
   const handleCancel = () => {
     props.onClose && props.onClose()
+  }
+
+  const toggleTag = (value: string | number | boolean) => {
+    let index = activeTag.findIndex(option => option === value)
+    if (index >= 0) {
+      activeTag.splice(index, 1)
+    } else {
+      activeTag.push(value)
+    }
+    setActiveTag([...activeTag])
+    playSound('tab')
   }
 
   return (
@@ -118,7 +131,11 @@ export default function RecruitEditor (props: RecruitEditorProps) {
             <ul>
               {
                 TagOptions.map((option: AcPickerOption) => {
-                  return <li className="btn" key={option.label}>{option.label}</li>
+                  return <li
+                    className={`btn ${activeTag.includes(option.value) ? 'active' : ''}`}
+                    key={option.label}
+                    onClick={() => toggleTag(option.value)}
+                  >{option.label}</li>
                 })
               }
               <li className="empty"></li>
@@ -133,9 +150,7 @@ export default function RecruitEditor (props: RecruitEditorProps) {
         </section>
         <section className="row-last">
           <div className="section-left">
-            <label>
-              <p className="sub">招募预算</p>
-            </label>
+            <label>招募预算</label>
             <ul>
               <li>
                 <img height="140" width="140" src="http://ak.mooncell.wiki/images/thumb/6/6a/%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png/140px-%E9%81%93%E5%85%B7_%E5%B8%A6%E6%A1%86_%E9%BE%99%E9%97%A8%E5%B8%81.png" alt=""/>

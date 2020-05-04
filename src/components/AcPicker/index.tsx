@@ -85,14 +85,14 @@ export default function AcPicker (props: AcPickerProps) {
    */
   useInterval(() => {
     handleUp()
-  }, upRunning ? 100 : null)
+  }, upRunning ? 150 : null)
   
   /**
    * 持续点击向下
    */
   useInterval(() => {
     handleDown()
-  }, downRunning ? 100 : null)
+  }, downRunning ? 150 : null)
 
 
 

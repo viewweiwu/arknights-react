@@ -1,1 +1,1 @@
-declare module 'live2d-helper'
+declare interface Window { Live2dHelper: any; }
