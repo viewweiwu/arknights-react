@@ -9,7 +9,7 @@ interface Tab {
   img: string
 }
 
-// const cg = 'http://ak.mooncell.wiki/images/4/47/Avg_char_007_closre_6.png'
+const cg = 'http://ak.mooncell.wiki/images/4/47/Avg_char_007_closre_6.png'
 
 const tabs: Array<Tab> = [
   {
@@ -72,7 +72,7 @@ export default function () {
           <img src={ getActiveTab(active).img } alt="" draggable="false" />
         </main>
       </div>
-      {/* <img className="shop-cg" src={cg} alt="可露希尔" draggable="false" /> */}
+      <img className="shop-cg" src={cg} alt="可露希尔" draggable="false" />
       <div className="shop-voice" onClick={() => changeIndex()}>
         <p>
           <mark>FROM</mark>

@@ -10,7 +10,7 @@ import {
 import './shop.less'
 import AcToolbar from '@/components/AcToolbar'
 import { playSound } from '@/components/AcAudio'
-import Live from '../Live'
+// import Live from '../Live'
 
 interface TabItem {
   id: string,
@@ -58,10 +58,10 @@ const tabs: Array<TabItem> = [
   },
   {
     id: '6',
-    path: '/shop/featured',
+    path: '/shop/furniture',
     name: '家具商店',
     icon: 'furniture',
-    element: lazy(() => import('./ShopFeatured'))
+    element: lazy(() => import('./ShopFurniture'))
   },
   {
     id: '7',
@@ -99,7 +99,7 @@ export default function () {
         </div>
       </header>
       <article className="shop-body">
-        <Live className="shop-cg" />
+        {/* <Live className="shop-cg" /> */}
         <Switch>
           {
             tabs.map(route => {

@@ -6,7 +6,6 @@ module.exports = {
   paths: function (paths) {
     // paths.publicUrlOrPath = './'
     paths.appBuild = path.resolve(__dirname, './dist')
-    console.log(paths)
     return paths
   },
   webpack: override(

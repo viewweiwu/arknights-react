@@ -10,7 +10,10 @@ let soundMap: SoundMapProps = {
   stagepull: new Howl({ src: [require('./audio/g_ui_stagepull.wav')] }),
   confirm: new Howl({ src: [require('./audio/g_ui_confirm.wav')] }),
   popup: new Howl({ src: [require('./audio/g_ui_popup.wav')] }),
-  tab: new Howl({ src: [require('./audio/g_ui_tabswitch.wav')] })
+  tab: new Howl({ src: [require('./audio/g_ui_tabswitch.wav')] }),
+  '能天使_干员报到': new Howl({ src: [require('./audio/能天使_干员报到.wav')] }),
+  'mixed_gacha_part1': new Howl({ src: [require('./audio/mixed_gacha_part1.wav')] }),
+  'mixed_gacha_part2': new Howl({ src: [require('./audio/mixed_gacha_part2.wav')] })
 }
 
 /**
