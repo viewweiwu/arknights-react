@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import './gacha.less'
 import { useMount, useInterval } from 'react-use'
-import { playSound } from '../AcAudio'
+import { playSound, stopSound } from '../AcAudio'
 import GachaDetail from './GachaDetail'
 import { getRandomFloor } from '@/utils'
 import GachaShadow from './GachaShadow'
+import ReactDOM from 'react-dom'
 
-interface MemberGetProps {
+interface GachaProps {
   onClose(visible: boolean): void
 }
 
@@ -60,11 +61,6 @@ const createDefaultArrow = (count: number) => {
   return newList
 }
 
-interface MemberGetProps {
-  onClose(visible: boolean): void
-}
-
-
 const gacha = require('./images/gacha.png')
 const data = require('./images/gacha2.png')
 
@@ -85,20 +81,24 @@ const clearMovedList = (list: Array<ArrowItem>, setList: (newList: Array<ArrowIt
   return newList
 }
 
-export default function MemberGet (props: MemberGetProps) {
+let preShadowTimer: NodeJS.Timeout
+let shadowTimer: NodeJS.Timeout
+let timer: NodeJS.Timeout
+
+function GachaDialog (props: GachaProps) {
   const [ visble, setVisible ] = useState<boolean>(false)
   const [ preShadowVisible, setPreShadowVisible ] = useState<boolean>(false)
   const [ shadowVisible, setShadowVisible ] = useState<boolean>(false)
   let [ list, setList ] = useState<Array<ArrowItem>>(createDefaultArrow(5))
   
   useMount(() => {
-    setTimeout(() => {
+    preShadowTimer = setTimeout(() => {
       setPreShadowVisible(true)
     }, 4000)
-    setTimeout(() => {
+    shadowTimer = setTimeout(() => {
       setShadowVisible(true)
     }, 6000)
-    setTimeout(() => {
+    timer = setTimeout(() => {
       setVisible(true)
     }, 8000)
 
@@ -117,8 +117,27 @@ export default function MemberGet (props: MemberGetProps) {
     }
   }, 200)
 
+  const handleSkip = () => {
+    if (!visble) {
+      clearTimeout(preShadowTimer)
+      clearTimeout(shadowTimer)
+      clearTimeout(timer)
+      setPreShadowVisible(false)
+      setShadowVisible(true)
+      timer = setTimeout(() => {
+        setVisible(true)
+      }, 2000)
+      stopSound('mixed_gacha_part1')
+    } else {
+      props.onClose(true)
+      stopSound('能天使_干员报到')
+      stopSound('mixed_gacha_part2')
+    }
+  }
+
   return (
     <div className="gacha-preview">
+      <div className="gacha-skip btn" onClick={handleSkip}>SKIP</div>
       <div className='arrow-wrap'>
         {
           list.map((item) => {
@@ -131,11 +150,26 @@ export default function MemberGet (props: MemberGetProps) {
           })
         }
       </div>
-      <img className="gacha-preview-data" width="500" src={data} alt="" />
-      <img className="gacha-preview-pack" width="500" src={gacha} alt="" />
-      { visble && <GachaDetail onClose={() => setVisible(false)} /> }
+      { !shadowVisible && <img className="gacha-preview-data" width="500" src={data} alt="" /> }
+      { !shadowVisible && <img className="gacha-preview-pack" width="500" src={gacha} alt="" /> }
+      { visble && <GachaDetail onClose={() => props.onClose(false)} /> }
       { preShadowVisible && <div className="gacha-preview-shadow"></div> }
       { shadowVisible && <GachaShadow /> }
     </div>
+  )
+}
+
+export default function ShowGacha () {
+  let element: HTMLDivElement = window.document.createElement('div')
+  document.body.appendChild(element)
+
+  const onClose = () => {
+    ReactDOM.unmountComponentAtNode(element)
+    document.body.removeChild(element)
+  }
+
+  ReactDOM.render(
+    <GachaDialog onClose={onClose} />,
+    element
   )
 }

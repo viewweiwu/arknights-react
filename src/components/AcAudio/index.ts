@@ -26,3 +26,8 @@ export const playSound = (soundName: string) => {
   }
 }
 
+export const stopSound = (soundName: string) => {
+  if (soundMap.hasOwnProperty(soundName)) {
+    soundMap[soundName].stop()
+  }
+}

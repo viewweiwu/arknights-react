@@ -12,7 +12,7 @@ export default function GachaShadow() {
 
   return (
     <div className="gacha-shadow">
-      <img className="gacha-shadow-cg" src={shadow} height="900" alt="" />
+      <img className="gacha-shadow-cg" src={shadow} height="900" draggable="false" alt="" />
       <ul className="gacha-shadow-light">
         <li className="light-item"></li>
         <li className="light-item"></li>

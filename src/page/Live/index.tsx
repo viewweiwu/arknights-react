@@ -8,9 +8,8 @@ export default function Live (props: any) {
       baseUrl: "/model/Hiyori",
       model: "/model/Hiyori/Hiyori.model3.json",
       width: document.body.clientWidth,
-      height: document.body.clientHeight - 10
+      height: document.body.clientHeight
     })
-    console.log(1)
   })
   return (
     <div className={`live ${props.className}`}>

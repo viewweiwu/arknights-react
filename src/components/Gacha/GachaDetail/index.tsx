@@ -1,7 +1,7 @@
 import React from 'react'
 import '../gacha.less'
 import Dust from '../../Dust'
-import MemberGetBreak from '../GachaBreak'
+import GachaBreak from '../GachaBreak'
 import { useMount } from 'react-use'
 import { playSound } from '@/components/AcAudio'
 const garish = require('./poly.png')
@@ -46,7 +46,7 @@ export default function GachaDetail(props: GachaDetailProps) {
       <div className="gacha-voice">
         <p>口令是“企鹅帝国万岁”，你就是雇主吗？叫我能天使。我和那个冷淡的鲁珀人可不一样，你要是想找点有趣的事做，随时都可以来叫我！</p>
       </div>
-      <MemberGetBreak />
+      <GachaBreak />
     </div>
   )
 }

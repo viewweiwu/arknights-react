@@ -3,11 +3,12 @@ import './recruit.less'
 import { success } from '@/components/AcMessage' // 消息
 import { confirm } from '@/components/AcConfirm' // 确认框
 import AcButton from '@/components/AcButton' // 按钮
-import MemberGet from '@/components/Gacha' // 干员入队
+import Gacha from '@/components/Gacha' // 干员入队
 import RecruitEditor from './RecruitEditor'
 import ReactDOM from 'react-dom'
 import AcToolbar from '@/components/AcToolbar'
 import { playSound } from '@/components/AcAudio'
+import ShowGacha from '@/components/Gacha'
 
 interface RecruitItem {
   num: number, // 格子坐标
@@ -35,7 +36,6 @@ const handleEdit = () => {
 }
 
 export default function Recruit () {
-  let [ visible, setVisible ] = useState<boolean>(false)
   let [ data, setData ] = useState<Array<RecruitItem>>([
     {
       num: 1,
@@ -63,7 +63,7 @@ export default function Recruit () {
    * 招募结束 -> 干员加入
    */
   const handleConfirm = () => {
-    setVisible(true)
+    ShowGacha()
   }
   
   /**
@@ -144,7 +144,6 @@ export default function Recruit () {
           })
         }
       </ul>
-      { visible && <MemberGet onClose={() => setVisible(false)} /> }
     </div>
   )
 }
