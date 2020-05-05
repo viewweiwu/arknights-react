@@ -11,9 +11,9 @@ let soundMap: SoundMapProps = {
   confirm: new Howl({ src: [require('./audio/g_ui_confirm.wav')] }),
   popup: new Howl({ src: [require('./audio/g_ui_popup.wav')] }),
   tab: new Howl({ src: [require('./audio/g_ui_tabswitch.wav')] }),
-  '能天使_干员报到': new Howl({ src: [require('./audio/能天使_干员报到.wav')] }),
-  'mixed_gacha_part1': new Howl({ src: [require('./audio/mixed_gacha_part1.wav')] }),
-  'mixed_gacha_part2': new Howl({ src: [require('./audio/mixed_gacha_part2.wav')] })
+  '能天使_干员报到': new Howl({ src: ['https://imgkr.cn-bj.ufileos.com/69d98a94-5f47-4260-9b5a-5bb1f7b42eb4.wav'] }),
+  'mixed_gacha_part1': new Howl({ src: ['https://imgkr.cn-bj.ufileos.com/901f6aef-21cc-417f-b635-637ed0ec2e29.wav'] }),
+  'mixed_gacha_part2': new Howl({ src: ['https://imgkr.cn-bj.ufileos.com/d04ef71d-b2b5-4849-b70e-bddd2074b593.wav'] })
 }
 
 /**

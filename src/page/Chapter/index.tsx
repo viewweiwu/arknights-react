@@ -10,43 +10,50 @@ const chapterList = [
     title: '黑暗时代·上',
     en: 'EPISODE 00',
     text: '序章',
-    src: require('./images/chapter0.png')
+    src: 'https://imgkr.cn-bj.ufileos.com/7d752599-0663-4083-b0ae-d464fce91736.png'
+    // src: require('./images/chapter0.png')
   },
   {
     title: '黑暗时代·下',
     en: 'EPISODE 01',
     text: '第一章',
-    src: require('./images/chapter1.png')
+    src: 'https://imgkr.cn-bj.ufileos.com/e5fa571d-5dad-4ebf-9dbd-a68a66cf0f1a.png'
+    // src: require('./images/chapter1.png')
   },
   {
     title: '以卵同生',
     en: 'EPISODE 02',
     text: '第二章',
-    src: require('./images/chapter2.png')
+    src: 'https://imgkr.cn-bj.ufileos.com/06a2445a-905a-4605-8a22-9c72a2e3dfcf.png'
+    // src: require('./images/chapter2.png')
   },
   {
     title: '二次呼吸',
     en: 'EPISODE 03',
     text: '第三章',
-    src: require('./images/chapter3.png')
+    src: 'https://imgkr.cn-bj.ufileos.com/d731c70a-2127-4128-8ef6-e7e4316393fa.png'
+    // src: require('./images/chapter3.png')
   },
   {
     title: '急性衰竭',
     en: 'EPISODE 04',
     text: '第四章',
-    src: require('./images/chapter4.png')
+    src: 'https://imgkr.cn-bj.ufileos.com/65745304-2666-4ddb-a180-61e6f00b9eca.png'
+    // src: require('./images/chapter4.png')
   },
   {
     title: '靶向药物',
     en: 'EPISODE 05',
     text: '第五章',
-    src: require('./images/chapter5.png')
+    src: 'https://imgkr.cn-bj.ufileos.com/a260ad66-d447-41ca-9ab0-f911df5b4fe4.png'
+    // src: require('./images/chapter5.png')
   },
   {
     title: '局部坏死',
     en: 'EPISODE 06',
     text: '第六章',
-    src: require('./images/chapter6.png')
+    src: 'https://imgkr.cn-bj.ufileos.com/16d7eee4-4d17-49b8-ac50-df3d00822f44.png'
+    // src: require('./images/chapter6.png')
   }
 ]
 

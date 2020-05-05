@@ -61,8 +61,8 @@ const createDefaultArrow = (count: number) => {
   return newList
 }
 
-const gacha = require('./images/gacha.png')
-const data = require('./images/gacha2.png')
+const gacha = 'https://imgkr.cn-bj.ufileos.com/b2e372b6-8ded-45b8-b4e1-5c8e160f1e39.png'
+const data = 'https://imgkr.cn-bj.ufileos.com/e10a9f47-2035-4272-a613-9f1cfdd9ad6b.png'
 
 /**
  * @description: 清空已经完成动画的元素
