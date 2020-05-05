@@ -1,7 +1,7 @@
 # Arknights 明日方舟复刻（React）
 
-## 本地预览方式
-暂时没有实际地址，需要本地预览。
+## 地址
+http://118.24.147.213/
 
 ```node
 npm i
@@ -12,7 +12,6 @@ npm run start
 ```
 
 ## 技术选择
-
   1. react
   2. react-hook
   3. react-router
@@ -22,9 +21,14 @@ npm run start
 
 
 ## 界面预览
-![home.png](https://i.loli.net/2020/04/26/EZVhYW1iHBworL4.jpg)
-![chapter.png](https://i.loli.net/2020/04/26/SHagWLXlxzID8Ee.jpg)
-![member.png](https://i.loli.net/2020/04/26/liCHqBULpJE5nP4.jpg)
+![](https://imgkr.cn-bj.ufileos.com/61dc04ca-e41a-4634-b1a4-adf812b81ff7.png)
+
+![](https://imgkr.cn-bj.ufileos.com/f3795716-22e5-4a66-8436-05a5f8ff6cd4.png)
+
+![](https://imgkr.cn-bj.ufileos.com/9f721f39-e16c-4a35-92fe-a88009d7ce8f.png)
+
+![](https://imgkr.cn-bj.ufileos.com/af0a1ee7-5a05-4127-951a-291b766240c0.png)
+
 
 ## 页面布局
 - 首页 ✅
@@ -49,15 +53,9 @@ npm run start
     - 道具详情 ✅
 - 干员加入（抽卡） ✅
 
-## 特殊细节
-
-### 首页
-  1. 角色立绘会眨眼
-  2. 鼠标视差效果
-
-### 章节选择
-  1. 缺少背景图片纹理，所以随便找了个纹理素材替代😭
-
 
 ## 数据来源
-  图片数据来源 - [玩家自由构筑的明日方舟中文Wiki](http://ak.mooncell.wiki/w/%E9%A6%96%E9%A1%B5)
+| 来源 | 数据类型 | 明细 |
+| - | - | - |
+| 明日方舟WIKI [READ MORE+](http://ak.mooncell.wiki/w/%E9%A6%96%E9%A1%B5) | 图片、数据 | 道具列表、干员列表、干员立绘... |
+| 明日方舟官网 [READ MORE+](https://ak.hypergryph.com/) | 图标、纹理、音频、音效 | - |
