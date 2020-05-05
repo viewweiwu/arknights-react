@@ -33,7 +33,7 @@ const tabs: Array<Tab> = [
 ]
 
 let messages = [
-  <div>可露希尔姐姐现在出门采购啦，今天由我来值班。<del>其实因为找不到可露希尔的 live2d 资源包。</del></div>,
+  // <div>可露希尔姐姐现在出门采购啦，今天由我来值班。<del>其实因为找不到可露希尔的 live2d 资源包。</del></div>,
   '啊对了！博士不考虑一下成为会员吗？享受性价比超高的优惠服务，轻轻松松就能帮罗德岛剩下不少的预算开支！',
   'Hello~ 博士今天有什么想采购吗？',
   '这些都是特意为博士准备的采购部组合包！快收下吧！虽然说是采购部组合包，但是这也是要动用预算经费的。'
@@ -76,9 +76,9 @@ export default function () {
       <div className="shop-voice" onClick={() => changeIndex()}>
         <p>
           <mark>FROM</mark>
-          <span>HIYORI</span>
-          {/* <span>CLOSURE</span>
-          <span className="gap">罗德岛第一财务<del>(jianshang)</del></span> */}
+          {/* <span>HIYORI</span> */}
+          <span>CLOSURE</span>
+          <span className="gap">罗德岛第一财务<del>(jianshang)</del></span>
         </p>
         <div className="shop-message">{messages[messageIndex]}</div>
       </div>
