@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './shop-fetured.less'
 import { getRandomFloor } from '@/utils'
-import Live from '@/page/Live'
 
 interface Tab {
   id: string,
@@ -10,7 +9,7 @@ interface Tab {
   img: string
 }
 
-const cg = 'http://ak.mooncell.wiki/images/4/47/Avg_char_007_closre_6.png'
+// const cg = 'http://ak.mooncell.wiki/images/4/47/Avg_char_007_closre_6.png'
 
 const tabs: Array<Tab> = [
   {

@@ -3,7 +3,6 @@ import './recruit.less'
 import { success } from '@/components/AcMessage' // 消息
 import { confirm } from '@/components/AcConfirm' // 确认框
 import AcButton from '@/components/AcButton' // 按钮
-import Gacha from '@/components/Gacha' // 干员入队
 import RecruitEditor from './RecruitEditor'
 import ReactDOM from 'react-dom'
 import AcToolbar from '@/components/AcToolbar'

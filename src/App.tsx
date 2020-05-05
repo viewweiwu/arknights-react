@@ -6,7 +6,6 @@ import {
   RouteComponentProps
 } from "react-router-dom";
 import { useMount } from 'react-use'
-import { info } from './components/AcMessage'
 
 const routes = [
   {
