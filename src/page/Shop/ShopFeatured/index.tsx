@@ -11,10 +11,6 @@ interface Tab {
 
 const cg = 'http://ak.mooncell.wiki/images/4/47/Avg_char_007_closre_6.png'
 
-class aa {
-  constructor
-}
-
 const tabs: Array<Tab> = [
   {
     id: '1',
