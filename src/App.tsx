@@ -21,6 +21,10 @@ const routes = [
     element: lazy(() => import('./page/Chapter'))
   },
   {
+    path: '/stage',
+    element: lazy(() => import('./page/Stage'))
+  },
+  {
     path: '/member',
     element: lazy(() => import('./page/Member'))
   },

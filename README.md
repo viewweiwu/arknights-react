@@ -12,12 +12,14 @@ npm run start
 ```
 
 ## 技术选择
-  1. react
-  2. react-hook
-  3. react-router
-  4. typescript
-  5. less
-  6. create-react-app
+
+- react 套餐
+- react-hook
+- typescript
+- less `css 预处理`
+- howler `音频管理`
+- Live2dHelper `live2d`
+- parallax-js `视差动效`
 
 
 ## 界面预览
