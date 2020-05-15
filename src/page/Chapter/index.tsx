@@ -3,9 +3,17 @@ import './chapter.less'
 import Dust from '@/components/Dust'
 import AcScroll from '@/components/AcScroll'
 import AcToolbar from '@/components/AcToolbar'
+import { useHistory } from 'react-router'
+
+interface Chapter {
+  title: string,
+  en: string,
+  text: string,
+  src: string
+}
 
 // 章节数据
-const chapterList = [
+const chapterList: Array<Chapter> = [
   {
     title: '黑暗时代·上',
     en: 'EPISODE 00',
@@ -58,7 +66,13 @@ const chapterList = [
 ]
 
 
-export default function () {
+export default function Chapter () {
+  const history = useHistory()
+
+  const handleChapterSelect = (chapter: Chapter) => {
+    history.push('/stage')
+  }
+
   return (
     <div className="chapter">
       <AcToolbar />
@@ -67,9 +81,9 @@ export default function () {
       <AcScroll className="shadow-scroll">
         <div className="chapter-select">
           {
-            chapterList.map(chapter => {
+            chapterList.map((chapter: Chapter) => {
               return (
-                <div className="chapter-select-item" key={chapter.title}>
+                <div className="chapter-select-item" key={chapter.title} onClick={() => handleChapterSelect(chapter)}>
                   <div className="item-symbol">
                     <div className="item-line"></div>
                     <div className="item-title">
