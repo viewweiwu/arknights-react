@@ -4,6 +4,7 @@ import Dust from '@/components/Dust'
 import AcScroll from '@/components/AcScroll'
 import AcToolbar from '@/components/AcToolbar'
 import { useHistory } from 'react-router'
+import { playSound } from '@/components/AcAudio'
 
 interface Chapter {
   title: string,
@@ -70,6 +71,7 @@ export default function Chapter () {
   const history = useHistory()
 
   const handleChapterSelect = (chapter: Chapter) => {
+    playSound('stagepull')
     history.push('/stage')
   }
 

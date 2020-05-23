@@ -4,7 +4,7 @@ import { getRandomFloor, getRandom } from '@/utils'
 
 class Dust {
   ctx: CanvasRenderingContext2D
-  width:number = 0 // 画布宽度
+  width: number = 0 // 画布宽度
   height: number = 0 // 画布高度
   maxPointLength: number = 1 // 灰尘最大数量
   safeMaxPointLength: number = 30 // 灰尘上限数量

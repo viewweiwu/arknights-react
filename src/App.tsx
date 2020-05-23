@@ -11,6 +11,14 @@ const routes = [
   {
     path: '/',
     exact: true,
+    element: lazy(() => import('./page/Login')),
+    meta: {
+      title: '登录'
+    }
+  },
+  {
+    path: '/home',
+    exact: true,
     element: lazy(() => import('./page/Home')),
     meta: {
       title: '主页'

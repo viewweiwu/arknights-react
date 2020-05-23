@@ -1,9 +1,6 @@
 import LayoutDagre, { Edge, Node } from './layout-dagre'
 import { info } from '@/components/AcMessage'
 
-const ui = require('../images/ui.png')
-const image = new Image()
-image.src = ui
 
 const getNodeStyle = (type: string) => {
   let style = {
@@ -60,6 +57,8 @@ class StageFlow {
   size: number = 12
   nodes: Array<Node> = []
   edges: Array<Edge> = []
+  loaded: Boolean = false
+  image: HTMLImageElement | null | undefined
 
   constructor ($el: HTMLCanvasElement, data: { nodes: Array<Node>, edges: Array<Edge> }) {
     let { padding, edgeSize, nodeSize, offsetSize, width, height } = this
@@ -113,8 +112,17 @@ class StageFlow {
       }
     })
 
-    image.onload = () => {
+    if (this.loaded) {
       this.draw(this.ctx, this.nodes, this.edges)
+    } else {
+      const ui = require('../images/ui.png')
+      const image: HTMLImageElement = new Image()
+      image.src = ui
+      image.onload = () => {
+        this.image = image
+        this.loaded = true
+        this.draw(this.ctx, this.nodes, this.edges)
+      }
     }
   }
 
@@ -126,13 +134,14 @@ class StageFlow {
    */
   draw (ctx: CanvasRenderingContext2D, nodes: Array<Node>, edges: Array<Edge>) {
     if (!ctx) return
+    const image: HTMLImageElement = this.image as HTMLImageElement
     
     edges.forEach((edge: Edge) => {
       this.drawEdge(ctx, edge)
     })
 
     nodes.forEach((node: Node) => {
-      this.drawNode(ctx, node)
+      this.drawNode(ctx, node, image)
     })
 
   }
@@ -142,7 +151,7 @@ class StageFlow {
    * @param ctx 画笔
    * @param node 节点
    */
-  drawNode (ctx: CanvasRenderingContext2D, node: Node) {
+  drawNode (ctx: CanvasRenderingContext2D, node: Node, image: CanvasImageSource) {
     const config = node._config
     const style = getNodeStyle(node.type)
     ctx.textBaseline = 'middle'

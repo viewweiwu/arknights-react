@@ -3,6 +3,8 @@ import React, { useState, useRef } from 'react'
 import './stage.less'
 import { useMount } from 'react-use'
 import StageFlow from './graph/stage-flow'
+import Dust from '@/components/Dust'
+import AcToolbar from '@/components/AcToolbar'
 
 const before = require('./images/zone_map_0_up.png')
 const after = require('./images/zone_map_0_down.png')
@@ -12,7 +14,10 @@ export default function Stage () {
   const [opacity, setOpacity] = useState<number>(0)
   const [left, setLeft] = useState<number>(0)
   const $canvas = useRef<HTMLCanvasElement>(null)
-
+  /**
+   * 处理滚动
+   * @param e 滚动
+   */
   const handleScroll = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
     const target = e.currentTarget
     const width: number = target.offsetWidth  
@@ -30,6 +35,8 @@ export default function Stage () {
 
   return (
     <div className="stage">
+      <AcToolbar />
+      <Dust />
       <div className="stage-before" style={{ transform: `translateX(-${left / 10}%)` }}>
         <img src={before} alt=""/>
       </div>
