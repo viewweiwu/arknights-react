@@ -1,0 +1,57 @@
+@import "~@/assets/less/variable.less";
+
+.home-lungmen {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(~@/assets/images/bg_lungmen_m.png);
+  background-size: cover;
+  background-position: center center;
+}
+
+.home-card {
+  padding: 10px;
+  color: 333;
+  font-size: 30px;
+  opacity: .8;
+  color: #000;
+  background-color: #fff;
+  mix-blend-mode: screen;
+}
+
+.home-card-timer {
+  padding: @space2;
+  display: inline-flex;
+  justify-content: space-between;
+
+  .title {
+    font-size: 60px;
+  }
+
+  .right {
+    margin-left: @space4;
+    margin-top: @space2;
+  }
+}
+
+.home-card-audio {
+  .audio-player {
+    height: 300px;
+  }
+}
+
+.home-card-character {
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  position: fixed;
+
+  .point {
+    width: 4px;
+    height: 4px;
+    // border-radius: 50%;
+    background-color: #ff0066;
+    display: inline-block;
+    position: absolute;
+    
+  }
+}

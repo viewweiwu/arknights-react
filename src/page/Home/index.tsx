@@ -35,7 +35,7 @@ export default function Home (props: RouteComponentProps) {
     <div className="home">
       <section className="chara-cg">
         <div className="chara-cg-doctor"></div>
-        <img className="chara-cg-main" src={cg} alt="" draggable="false" />
+        <img className="chara-cg-main" src={cg} alt="" height="1024" draggable="false" />
         <img className="chara-cg-eye" src={eye} alt="" draggable="false" />
       </section>
       <section className="home-user">
