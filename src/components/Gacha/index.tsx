@@ -61,8 +61,8 @@ const createDefaultArrow = (count: number) => {
   return newList
 }
 
-const gacha = 'https://imgkr.cn-bj.ufileos.com/b2e372b6-8ded-45b8-b4e1-5c8e160f1e39.png'
-const data = 'https://imgkr.cn-bj.ufileos.com/e10a9f47-2035-4272-a613-9f1cfdd9ad6b.png'
+const gacha = 'https://misc.hzzcckj.cn/upload/image/202010/aa7c16bfac00000.png'
+const data = 'https://misc.hzzcckj.cn/upload/image/202010/aa7c18c39c00000.png'
 
 /**
  * @description: 清空已经完成动画的元素

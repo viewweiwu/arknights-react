@@ -28,7 +28,7 @@ export default function GachaDetail(props: GachaDetailProps) {
         <i className="iconfont icon-fill-down"></i>
       </div>
       <img className="gacha-garish" src={garish} alt="" />
-      <img className="gacha-cg" src={cg} alt="" />
+      <img className="gacha-cg" src={cg} height="1024" alt="" />
       <img className="gacha-logo" src={logo} alt="" />
       <main className="gacha-info">
         <div className="info-type">
