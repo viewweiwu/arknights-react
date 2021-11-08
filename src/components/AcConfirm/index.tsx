@@ -4,22 +4,22 @@ import './ac-confirm.less'
 import { playSound } from '../AcAudio'
 
 interface AcConfirmProps {
-  children?: ReactNode,
-  onConfirm?(): void,
+  children?: ReactNode
+  onConfirm?(): void
   onCancel?(): void
 }
 
 const AcConfirm = (props: AcConfirmProps) => {
   return (
-    <div className="ac-confirm">
-      <div className="ac-confirm-content">
-        <div className="ac-confirm-msg">{props.children}</div>
+    <div className='ac-confirm'>
+      <div className='ac-confirm-content'>
+        <div className='ac-confirm-msg'>{props.children}</div>
         <footer>
-          <button className="ac-confirm-cancel btn" onClick={props.onCancel}>
-            <i className="iconfont icon-close"></i>
+          <button className='ac-confirm-cancel btn' onClick={props.onCancel}>
+            <i className='iconfont icon-close'></i>
           </button>
-          <button className="ac-confirm-confirm btn" onClick={props.onConfirm}>
-            <i className="iconfont icon-check"></i>
+          <button className='ac-confirm-confirm btn' onClick={props.onConfirm}>
+            <i className='iconfont icon-check'></i>
           </button>
         </footer>
       </div>
@@ -28,7 +28,8 @@ const AcConfirm = (props: AcConfirmProps) => {
 }
 
 export const confirm = (msg: string | ReactNode) => {
-  return new Promise((resolve, reject) => {  // 创建空元素
+  return new Promise((resolve: any, reject) => {
+    // 创建空元素
     let element: HTMLDivElement = window.document.createElement('div')
     document.body.appendChild(element)
 
@@ -59,7 +60,9 @@ export const confirm = (msg: string | ReactNode) => {
     }
 
     ReactDOM.render(
-      <AcConfirm onConfirm={handleConfirm} onCancel={handleCancel}>{msg}</AcConfirm>,
+      <AcConfirm onConfirm={handleConfirm} onCancel={handleCancel}>
+        {msg}
+      </AcConfirm>,
       element
     )
   })

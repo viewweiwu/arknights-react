@@ -1,10 +1,5 @@
-import React, { lazy, Suspense } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  RouteComponentProps
-} from "react-router-dom";
+import React, { lazy, Suspense } from 'react'
+import { BrowserRouter as Router, Switch, Route, RouteComponentProps } from 'react-router-dom'
 import { useMount } from 'react-use'
 
 const routes = [
@@ -63,14 +58,15 @@ const routes = [
 ]
 
 const isMobile = () => {
-  let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-  return flag;
- }
+  let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+  return flag
+}
 
 export default function () {
   useMount(() => {
     if (isMobile()) {
       let s = window.innerWidth / 1920
+      // @ts-ignore
       document.body.style.zoom = s + ''
       let media = document.createElement('link')
       media.rel = 'stylesheet'
@@ -80,29 +76,27 @@ export default function () {
   })
   return (
     <Router>
-      <div className="media-tip">
-        <p>移动端的同学，请先<mark>旋转屏幕</mark>，再<mark>刷新</mark>，来访问此站。</p>
+      <div className='media-tip'>
+        <p>
+          移动端的同学，请先<mark>旋转屏幕</mark>，再<mark>刷新</mark>，来访问此站。
+        </p>
       </div>
       <Switch>
-        {
-          routes.map(route => {
-            return (
-              <Route
-                exact={route.exact}
-                path={route.path}
-                key={route.path}
-                render={
-                  (props: RouteComponentProps) => (
-                    <Suspense fallback={<div>...</div>}>
-                      <route.element {...props} />
-                    </Suspense>   
-                  )
-                }
-              />
-            )
-          })
-        }
+        {routes.map((route) => {
+          return (
+            <Route
+              exact={route.exact}
+              path={route.path}
+              key={route.path}
+              render={(props: RouteComponentProps) => (
+                <Suspense fallback={<div>...</div>}>
+                  <route.element {...props} />
+                </Suspense>
+              )}
+            />
+          )
+        })}
       </Switch>
     </Router>
-  );
+  )
 }
