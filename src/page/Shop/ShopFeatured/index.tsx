@@ -3,13 +3,13 @@ import './shop-fetured.less'
 import { getRandomFloor } from '@/utils'
 
 interface Tab {
-  id: string,
-  isTime: boolean,
-  title: string,
+  id: string
+  isTime: boolean
+  title: string
   img: string
 }
 
-const cg = 'http://ak.mooncell.wiki/images/4/47/Avg_char_007_closre_6.png'
+const cg = 'http://prts.wiki/images/4/47/Avg_char_007_closre_6.png'
 
 const tabs: Array<Tab> = [
   {
@@ -40,7 +40,7 @@ let messages = [
 ]
 
 const getActiveTab = (active: string): Tab => {
-  return tabs.find(item => item.id === active) as Tab
+  return tabs.find((item) => item.id === active) as Tab
 }
 
 export default function () {
@@ -52,35 +52,37 @@ export default function () {
   }
 
   return (
-    <div className="shop-featured">
-      <div className="featured-tabs">
+    <div className='shop-featured'>
+      <div className='featured-tabs'>
         <aside>
-          {
-            tabs.map(tab => {
-              return <div
-                className={`aside-item ${tab.id === active && 'active'}`}
-                onClick={() => setActive(tab.id)}
-                key={tab.id}
-              >
-                { tab.isTime && <time><i className="iconfont icon-time"></i></time> }
-                { tab.title }
+          {tabs.map((tab) => {
+            return (
+              <div className={`aside-item ${tab.id === active && 'active'}`} onClick={() => setActive(tab.id)} key={tab.id}>
+                {tab.isTime && (
+                  <time>
+                    <i className='iconfont icon-time'></i>
+                  </time>
+                )}
+                {tab.title}
               </div>
-            })
-          }
+            )
+          })}
         </aside>
         <main>
-          <img src={ getActiveTab(active).img } alt="" draggable="false" />
+          <img src={getActiveTab(active).img} alt='' draggable='false' />
         </main>
       </div>
-      <img className="shop-cg" src={cg} alt="可露希尔" draggable="false" />
-      <div className="shop-voice" onClick={() => changeIndex()}>
+      <img className='shop-cg' src={cg} alt='可露希尔' draggable='false' />
+      <div className='shop-voice' onClick={() => changeIndex()}>
         <p>
           <mark>FROM</mark>
           {/* <span>HIYORI</span> */}
           <span>CLOSURE</span>
-          <span className="gap">罗德岛第一财务<del>(jianshang)</del></span>
+          <span className='gap'>
+            罗德岛第一财务<del>(jianshang)</del>
+          </span>
         </p>
-        <div className="shop-message">{messages[messageIndex]}</div>
+        <div className='shop-message'>{messages[messageIndex]}</div>
       </div>
     </div>
   )
