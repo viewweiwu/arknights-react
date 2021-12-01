@@ -2,7 +2,7 @@
 
 ## 地址
 
-http://118.24.147.213/
+https://minisunflower.vip
 
 ```node
 npm i
